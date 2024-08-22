@@ -123,3 +123,15 @@ nav:
     - C语言基础: Program-Design/C-basic.md
     - C编码风格与规范: Program-Design/C-code-style.md
     - 软件工程常用方法: Program-Design/SE-method.md
+  - 嵌入式技术:
+    - 嵌入式IDE: Embedded/embedded-ide.md
+    - 配置EIDE: Embedded/eide.md
+    - STM32手册阅读指南: Embedded/stm32-manual.md
+    - STM32常用外设与使用: Embedded/stm32-peripherals.md
+    - 调试器简介: Embedded/debugger.md
+    - Startup文件浅析: Embedded/startup.md
+    - sct与RAM/Flash: Embedded/sct.md
+    - 工具链浅析: Embedded/arm-toolchain.md
+    - 构建信息浅析: Embedded/build-info.md
+    - ST HAL库架构: Embedded/hal.md
+    - ARM Cortex内核与寄存器: Embedded/cortex.md

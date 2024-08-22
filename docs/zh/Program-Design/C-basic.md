@@ -26,7 +26,7 @@
 
 下面举个例子：
 
-```C
+``` C
 #include <stdint.h>
 #include <stdio.h>
 
@@ -73,7 +73,7 @@ int main(void) {
 
 全局变量和`static`变量的初始值必须在**编译时**就确定的，如果变量不是在编译时确定的，那么就会报错。例如：
 
-```C
+``` C
 int a_demo_function(void) {
     return 1;
 }
@@ -105,7 +105,7 @@ E:/C_Learn/main.c:9:40: error: initializer element is not constant
 
 而对于局部变量，初始值可以在运行时才确定，因此下面的代码不会报错：
 
-```C
+``` C
 int a_demo_function(void) {
     return 1;
 }
@@ -124,11 +124,11 @@ int main(void) {
 
 ## 整数
 
-> https://learn.microsoft.com/en-us/cpp/c-language/storage-of-basic-types?view=msvc-170
+> [Storage of basic types | Microsoft Learn](https://learn.microsoft.com/en-us/cpp/c-language/storage-of-basic-types?view=msvc-170)
 > 
 > C大师 022-031
 
-整数可谓是在程序中最常用的一种数据类型。但是，整数是由范围的，如果超出了其存储范围就会溢出。
+整数可谓是在程序中最常用的一种数据类型。但是，整数是有范围的，如果超出了其存储范围就会溢出。
 
 为什么整数会溢出，举个例子。下面这种机械计数的跳绳用过吧。当我们跳了999下后，再跳一下就会变成000，千位的1丢失了。
 
@@ -142,7 +142,7 @@ int main(void) {
 
 如果要确定一个整数的范围，可以使用`stdint.h`中定义的类型。这个头文件会根据系统平台与CPU架构来确定整数的范围。下面是ARM Clang编译器的`stdint.h`头文件简单介绍：
 
-```C
+``` C
 /* Copyright (C) ARM Ltd., 1999,2014 */
 /* All rights reserved */
 
@@ -228,7 +228,7 @@ typedef unsigned     __LONGLONG uintmax_t;
 
 我们在用`scanf, printf`这类带格式控制符的函数时，`int`类型的整数可以用`%d`，`unsigned int`类型的整数可以用`%u`，那么`int16_t`类型，`int8_t`类型的整数用什么呢？你可能会想，我全用`%d`不就行了？其实还真不行。请看下面代码：
 
-```C
+``` C
 #include <stdint.h>
 #include <stdio.h>
 
@@ -245,7 +245,7 @@ int main(void) {
 
 输入1, 运行结果:
 
-```bash
+``` bash
 >>> 1
 i32_num = 117440512, i8_num = 1
 ```
@@ -284,3 +284,47 @@ int main(void) {
 ```
 
 可以自行跳转到`inttypes.h`中看看，不算难这里就不多赘述了。
+
+### 整数的隐式类型转换
+
+> [Assignment conversions | Microsoft Learn](https://learn.microsoft.com/en-us/cpp/c-language/assignment-conversions?view=msvc-170)
+>
+> C大师 028
+
+
+首先想一下下面的代码运行结果是什么：
+``` C
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int main(void) {
+    /* 无符号到有符号 */
+    uint16_t u16num_1 = 45024;
+    int16_t s16num_1 = u16num_1;
+    printf("u16num = %" PRIu16 ", s16num = %" PRId16 "\n", u16num_1, s16num_1);
+
+    /* 大范围到小范围 */
+    int32_t s32num_2 = 40328;
+    int16_t s16num_2 = s32num_2;
+    printf("s32num = %" PRId32 ", s16num = %" PRId16 "\n", s32num_2, s16num_2);
+
+    /* 小范围到无符号大范围 */
+    int16_t s16num_3 = -1;
+    uint32_t u32num_3 = s16num_3;
+    printf("s16num = %" PRId16 ", s32num = %" PRIu32 "\n", s16num_3, u32num_3);
+
+    return 0;
+}
+
+```
+
+运行结果
+
+``` bash
+u16num = 45024, s16num = -20512
+s32num = 40328, s16num = -25208
+s16num = -1, s32num = 4294967295
+```
+
+没什么多说的，如果理解了上面所说的整数溢出，那么应该很容易理解为什么结果是这样。在实际开发中要注意上面的几种情况。
