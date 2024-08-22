@@ -2,7 +2,7 @@ site_name: XJU-Hurricane-docs
 site_description: 新疆大学飓风战队文档站
 site_url: https://xju-hurricane-team.github.io
 repo_url: https://github.com/XJU-Hurricane-Team/xju-hurricane-team.github.io
-edit_url: edit/main/docs/
+edit_uri: edit/main/docs/
 
 theme:
   name: material
