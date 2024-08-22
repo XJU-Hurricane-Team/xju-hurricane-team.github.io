@@ -1,0 +1,10 @@
+mkdocs
+mkdocs-material
+mkdocs-roamlinks-plugin
+markdown
+pymdown-extensions
+mkdocs-git-revision-date-localized-plugin
+mdx_truly_sane_lists
+jieba
+mkdocs-static-i18n
+mkdocs-minify-plugin
