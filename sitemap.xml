@@ -19,6 +19,72 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/"/>
     </url>
     <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/arm-toolchain/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/arm-toolchain/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/build-info/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/build-info/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/cortex/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/cortex/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/debugger/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/debugger/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/eide/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/eide/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/embedded-ide/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/embedded-ide/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/hal/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/hal/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/sct/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/sct/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/startup/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/startup/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/stm32-manual/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/stm32-manual/"/>
+    </url>
+    <url>
+        <loc>https://xju-hurricane-team.github.io/Embedded/stm32-peripherals/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://xju-hurricane-team.github.io/Embedded/stm32-peripherals/"/>
+    </url>
+    <url>
         <loc>https://xju-hurricane-team.github.io/Program-Design/</loc>
         <lastmod>2024-08-22</lastmod>
         <changefreq>daily</changefreq>
