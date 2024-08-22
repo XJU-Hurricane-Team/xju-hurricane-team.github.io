@@ -1,0 +1,125 @@
+site_name: XJU-Hurricane-docs
+site_description: 新疆大学飓风战队文档站
+site_url: https://xju-hurricane-team.github.io
+repo_url: https://github.com/XJU-Hurricane-Team/xju-hurricane-team.github.io
+edit_url: edit/main/docs/
+
+theme:
+  name: material
+  font: #false # 国内网络访问 Google 源可能会有问题
+    text: "Noto Sans SC - local"
+    #code: Roboto Mono
+  palette:
+    - media: "(prefers-color-scheme: light)" # 检查用户系统配置是否为亮色
+      scheme: default # 亮色模式
+      primary: white # 基本颜色
+      accent: blue # 按钮等互动块的颜色
+      toggle:
+        icon: material/eye
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)" # 检查用户系统配置是否为暗色
+      scheme: slate # 暗色模式
+      primary: black # 基本颜色
+      accent: blue # 按钮等互动块的颜色
+      toggle:
+        icon: material/eye-outline
+        name: 切换亮色模式
+  language: zh
+  logo: img/logo.png
+  favicon: img/logo.png
+  features:
+    - content.code.copy # 代码块复制按钮
+    - content.action.edit # 文章编辑按钮
+    #- navigation.instant # Instant loading，像个单页应用
+    - navigation.tracking # Anchor tracking
+    - navigation.tabs # 导航栏
+    - navigation.footer # 上一篇 / 下一篇导航按钮
+    #- navigation.tabs.sticky # 导航栏不随页面滚动隐藏
+    - navigation.sections # 侧边栏分组显示
+    #- navigation.expand # 导航栏自动展开
+    - navigation.indexes # 组标题有专属页面
+    - toc.follow # 目录自动跟随
+    - navigation.top # 返回顶部按钮
+    - search.suggest # 搜索推荐
+    #- navigation.prune # 导航修剪，仅渲染可见链接，优化文档数量超过100的站点（实验），会导致页面间跳转速度变慢
+    # - search.highlight
+  icon:
+    repo: material/github
+    #edit: material/pencil
+
+plugins:
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - locale: zh
+          default: true
+          name: 简体中文
+          build: true
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+      js_files:
+        - javascripts/mathjax.js
+        - javascripts/tex-mml-chtml.js
+        - javascripts/embed.js
+      css_files:
+        - stylesheets/extra.css
+extra:
+  generator: false
+  social:
+    - name: Github
+      link: https://github.com/XJU-Hurricane-Team
+      icon: fontawesome/brands/github
+    - name: Bilibili
+      link: https://space.bilibili.com/522132031/
+      icon: fontawesome/brands/bilibili
+    - name: 微信公众号
+      link: https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzkzNDYwNDAzMQ==&mid=2247483740&idx=1&sn=7d8b41e41cfe7f3100435bfbffd562e0&send_time=
+      icon: fontawesome/brands/weixin
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - mdx_truly_sane_lists
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js
+  - javascripts/mathjax.js #https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/latest.min.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - javascripts/tex-mml-chtml.js #https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/embed.js # https://viewer.altium.com/client/static/js/embed.js
+
+extra_css:
+  - stylesheets/extra.css
+
+#############################################################
+#############################################################
+#############################################################
+
+nav:
+  - Home: index.md
+  - 2024暑期学习: 2024Summer/index.md
+  - 程序设计:
+    - C语言基础: Program-Design/C-basic.md
+    - C编码风格与规范: Program-Design/C-code-style.md
+    - 软件工程常用方法: Program-Design/SE-method.md
