@@ -4,6 +4,8 @@
 
 感谢[Power's Wiki](https://wiki-power.com/)提供的网站模板。
 
+文档在`docs/zh/`下。
+
 # 参与者如何编辑
 
 确保安装了Python。
