@@ -25,7 +25,7 @@ theme:
         icon: material/eye-outline
         name: 切换亮色模式
   language: zh
-  logo: img/logo.png
+  logo: img/logo-banner.png
   favicon: img/logo.png
   features:
     - content.code.copy # 代码块复制按钮
