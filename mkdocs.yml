@@ -93,6 +93,12 @@ markdown_extensions:
   - pymdownx.snippets
   - attr_list
   - md_in_html
+  - admonition #MkDocs 警告框
+  - footnotes #脚注
+  - meta #自定义文章元数据
+  - pymdownx.caret #下划线
+  - pymdownx.mark #文本高亮
+  - pymdownx.tilde #删除线
   - mdx_truly_sane_lists
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -120,24 +126,24 @@ nav:
   - Home: index.md
   - 2024暑期学习: 2024Summer/index.md
   - 程序设计:
-    - index: Program-Design/index.md
-    - C语言基础: Program-Design/C-basic.md
-    - C编码风格与规范: Program-Design/C-code-style.md
-    - 软件工程常用方法: Program-Design/SE-method.md
+      - index: Program-Design/index.md
+      - C语言基础: Program-Design/C-basic.md
+      - C编码风格与规范: Program-Design/C-code-style.md
+      - 软件工程常用方法: Program-Design/SE-method.md
   - 嵌入式技术:
-    - index: Embedded/index.md
-    - 嵌入式IDE: Embedded/embedded-ide.md
-    - 配置EIDE: Embedded/eide.md
-    - STM32手册阅读指南: Embedded/stm32-manual.md
-    - STM32常用外设与使用: Embedded/stm32-peripherals.md
-    - 调试器简介: Embedded/debugger.md
-    - Startup文件浅析: Embedded/startup.md
-    - sct与RAM/Flash: Embedded/sct.md
-    - 工具链浅析: Embedded/arm-toolchain.md
-    - 构建信息浅析: Embedded/build-info.md
-    - ST HAL库架构: Embedded/hal.md
-    - ARM Cortex内核与寄存器: Embedded/cortex.md
+      - index: Embedded/index.md
+      - 嵌入式IDE: Embedded/embedded-ide.md
+      - 配置EIDE: Embedded/eide.md
+      - STM32手册阅读指南: Embedded/stm32-manual.md
+      - STM32常用外设与使用: Embedded/stm32-peripherals.md
+      - 调试器简介: Embedded/debugger.md
+      - Startup文件浅析: Embedded/startup.md
+      - sct与RAM/Flash: Embedded/sct.md
+      - 工具链浅析: Embedded/arm-toolchain.md
+      - 构建信息浅析: Embedded/build-info.md
+      - ST HAL库架构: Embedded/hal.md
+      - ARM Cortex内核与寄存器: Embedded/cortex.md
   - Linux:
-    - index: Linux/index.md
-    - Linux光标移动技巧: Linux/cursor_move.md
-    - VIM: Linux/vim.md
+      - index: Linux/index.md
+      - Linux光标移动技巧: Linux/cursor_move.md
+      - VIM: Linux/vim.md
