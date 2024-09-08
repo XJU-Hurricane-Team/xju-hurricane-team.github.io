@@ -9,11 +9,6 @@
   color: black;
 }
 
-/* Smooth Scroll 顺滑跳转到某位置 */
-html {
-  scroll-behavior: smooth;
-}
-
 img:not([alt="badge"]) {
   width: 1280px;
   border: 3px solid black;

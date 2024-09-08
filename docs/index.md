@@ -15,3 +15,4 @@ hide:
 
 [程序设计](Program-Design/index.md){ .md-button }
 [嵌入式技术](Embedded/index.md){ .md-button }
+[Linux基础](Linux/index.md){ .md-button }
