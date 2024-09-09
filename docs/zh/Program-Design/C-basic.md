@@ -7,9 +7,9 @@
 
 ---
 
-这里很少讲基础的语法，如果你对语法不熟练（比如搞不清楚`for`循环），自行根据上面两个链接的视频学习。
+这里很少讲基础的语法，会有大量的代码，如果你对语法不熟练（比如搞不清楚`for`循环），自行根据上面两个链接的视频学习。
 
-我会标注这部分知识在视频中的位置（以标题的标号为主，比如`P17 011-2.小学数学0-二进制`，我会标注011，而非P17。175小节前的都在前篇），以及会添加部分文档以供参考。
+我会标注这部分知识在视频中的位置（以标题的标号为主，比如`P17 011-2.小学数学0-二进制`，我会标注011，而非P17。175小节前的都在前篇），以及添加部分文档、博客供参考。
 
 没有顺序，想到什么写什么。
 
@@ -109,6 +109,7 @@ E:/C_Learn/main.c:9:40: error: initializer element is not constant
 int a_demo_function(void) {
     return 1;
 }
+
 int main(void) {
     int local_static_variable = a_demo_function();
 
@@ -329,7 +330,7 @@ s16num = -1, s32num = 4294967295
 
 没什么多说的，如果理解了上面所说的整数溢出，那么应该很容易理解为什么结果是这样。
 
-除了上述直接赋值的情况，还有一种情况就是两个不同类型的数运算。请看一下代码：
+除了上述直接赋值的情况，还有一种情况就是两个不同类型的数运算。请看以下代码：
 
 ``` C
 #include <stdint.h>
@@ -340,8 +341,7 @@ int main(void) {
     int32_t s32_num = -1;
 
     if (s32_num > u32_num) {
-        printf("%d > %u\n", s32_num, u
-               32_num);
+        printf("%d > %u\n", s32_num, u32_num);
     }
 
     if ((s32_num - u32_num) > 0) {
@@ -382,7 +382,9 @@ char, short --> int --> unsigned --> long --> double <-- float
 
 结构体可谓是在复杂数据类型里最常用的数据类型之一了。在嵌入式开发中函数的句柄就是结构体，如果结构体不熟悉，阅读代码会比较困难。
 
-结构体顾名思义是由各个基础数据类型组合形成（**成员也可以是枚举或者其他类型的结构体变量或指针，甚至是指向自身类型的指针，但是唯独不可以是自身类型的结构体变量**）的复杂数据类型，一般是由程序编写者自己定义的用于方便描述特定对象的数据类型，打个比方，如果我需要描述一位同学的基本信息，那我需要用char类型的数组来存储名字，int类型来存储他的年龄，float类型存储成绩等等等等，那能不能用一个自定义的变量去存储这位同学的所有信息呢？于是便有了以下的结构体
+`struct`的意思是构造，建造，因此结构体又叫构造体。构造，顾名思义是由各个基础数据类型组合而成，构造自己的数据类型。结构体成员也可以是枚举或者其他类型的结构体变量或指针，甚至是指向自身类型的指针，但是唯独不可以是自身类型的结构体变量。显而易见，结构体是一种比较复杂的数据类型，一般是由程序编写者自己定义的用于方便描述特定对象的数据类型。
+
+打个比方，如果我需要描述一位同学的基本信息，那我需要用char类型的数组来存储名字，int类型来存储他的年龄，float类型存储成绩等等等等，那能不能用一个自定义的变量去存储这位同学的所有信息呢？于是便有了以下的结构体
 
 ``` C
 struct {
@@ -397,7 +399,7 @@ struct {
 
 通过上面的结构体就是通过各个结构体成员，把想要描述的学生信息分条记录下来，这样一个变量就可以包含一个学生的全部信息。
 
-### typedef与结构体
+### `typedef`与结构体
 
 上面的方法有个问题，你只能在结构体后声明几个变量或指针，不能在其他地方使用这个结构体类型。那这就很不方便了，哪怕写两个成员一模一样的结构体变量，在编译器看来仍然不是同一种数据类型：
 
@@ -446,14 +448,14 @@ struct student student1, *student_ptr;  /* 在结构体声明之后进行，stru
 > 虽然有些编译器允许你省略`struct`关键字，但是建议还是写上，省略`struct`是不规范的写法。
 
 ``` C
-/* typedef给struct student变量类型起了一个Student的别名 */
+/* typedef给struct student变量类型起了一个student_t的别名 */
 typedef struct student {  /* 此处的student名称可以省略 */
     int num;
     char name[20];
     char sex;
 } student_t;
 
-student_t student1, *student_ptr; /* 用Student来表示变量类型 */
+student_t student1, *student_ptr; /* 用student_t来表示变量类型 */
 ```
 
 上面struct后的结构体名称可以省略，省略就是匿名结构体，只使用别名。一般用`typedef`定义结构体类型时结构体名可以省略名，除非必须要引用这个名称，比如链表的`next`指针：
@@ -578,6 +580,8 @@ Student 1 new name: Tom
 ### 结构体内存对齐
 
 > [【结构体内功修炼】结构体内存对齐（一）](https://xie.infoq.cn/article/99a458efeba148a9299c484f2)
+>
+> [Storage and Alignment of Structures | Microsoft Learn](https://learn.microsoft.com/en-us/cpp/c-language/storage-and-alignment-of-structures?view=msvc-170)
 
 为了加快CPU访问速度，结构体成员在内存中并不是连续分布的。内存对齐遵循以下的规则：
 
@@ -710,7 +714,7 @@ sizeof nest_struct: 16
 
 我们来看`member3`：`nest_struct_t`的最大对齐数是8，也就是结构体内的`uint64 member2`成员。因此在`foo_t`中它要对齐在8的整数倍。所以`foo_t.member3`的偏移量为8。其他的就和上面一样了，没什么好多说的。
 
-搞清楚上面的内容后，我们在来说最后一个，用`#pragma pack(n)`指定默认对齐数。注意这是预编译指令，不是以分号结尾。
+搞清楚上面的内容后，我们再来说最后一个，用`#pragma pack(n)`指定默认对齐数。注意这是预编译指令，不是以分号结尾。
 
 还是刚才的结构体，我在结构体开头加一个`#pragma pack(2)`，看看运行结果有什么变化：
 
@@ -753,78 +757,394 @@ offset of member5: 8
 
 我们发现从`member3`开始偏移量就不一样了。由于我们设置了默认对齐数为2，那么他的对齐数就不是4了，而是2。紧接着影响后面的结构体偏移量。这时候结构体的最大对齐数就是2，也会影响结构体的大小。
 
-如果我们写成`#prama pack()`，也就是括号内不写对齐数，那么就会取消掉前面我们用`#prama pack(n)`设置的默认对齐数，还原成编译器的默认设置。
+如果我们写成`#pragma pack()`，也就是括号内不写对齐数，那么就会取消掉前面我们用`#pragma pack(n)`设置的默认对齐数，还原成编译器的默认设置。
 
-除此之外我们还可以用`__attribute__`关键字设置内存对齐，参照[下面的内容](/Program-Design/C-basic/#_16)。注意`__attribute__`关键字是GNU对ISO C的扩展，支持GCC,Clang等编译器，VS默认的MSVC是不支持的。如果你的代码要在不同编译器下编译，需要用宏定义判断编译器做好处理。
+除此之外我们还可以用`__attribute__`关键字设置内存对齐，参照[下面的内容](/Program-Design/C-basic/#_16)。注意`__attribute__`关键字是GNU对ISO C的扩展，支持GCC, Clang等编译器，VS默认的MSVC是不支持的。如果你的代码要在不同编译器下编译，需要用宏定义判断编译器做好处理。
 
 为什么要把内存对齐讲的这么细呢？~~因为面试会问~~
 
 我们在设计自己的通信协议时，不同架构设备之间数据传输就可能存在结构体内存对齐的问题。还有一点就是跨平台，如果不考虑内存对齐，那么可能会产生意料之外的问题。
 
-### 位域
+建议自己写几个结构体练习一下。
 
-C语言允许我们按位对结构体成员进行定义，指定其所占位数，这样的成员我们称为位域成员
+### 位域(bit field)
 
-位域的特点和使用方法如下：
+> [C Bit Fields | Microsoft Learn](https://learn.microsoft.com/en-us/cpp/c-language/c-bit-fields?view=msvc-170)
+>
+> [C++ struct 位域 | 拾荒志](https://murphypei.github.io/blog/2019/06/struct-bit-field)
+>
+> [【结构体内功修炼】结构体实现位段（二）_C语言_Albert Edison_InfoQ写作社区](https://xie.infoq.cn/article/d63013a03e86ece67f3aedbc9)（这个文章有个小歧义，就是位域成员应该是整形类型，不单是`int`和`unsigned int`，要是说扩充`int`到`char short long`也不是不行）
 
-- 定义位域时，可以指定成员的位域宽度，即成员所占用的位数。
-- 位域的宽度不能超过其数据类型的大小，因为位域必须适应所使用的整数类型（VS平台上直接报错C2034）。
-- 位域的数据类型可以是 `int`、`unsigned int`、`signed int` 等整数类型，也可以是枚举类型。
-- 位域可以单独使用，也可以与其他成员一起组成结构体。
-- 位域的访问是通过点运算符（`.`）来实现的，与普通的结构体成员访问方式相同。
-- 若相邻的位域成员的类型相同，且其占用二进制位数未超过该类型可容纳的范围，则后面的成员紧接着前一个成员进行存储；
-- 若相邻的位域成员的类型相同，但其占用二进制位数超过该类型可容纳的范围，则后面的成员从该类型占用空间之后的内存单元开始存储;
-- 若相邻的位域成员的类型不同，则**取决于编译器的实现**。VS上的编译器不同类型的成员不会紧挨在一起；
-- 若位域之间定义有匿名位域成员，则匿名位域成员指定的空闲位不用于后续成员的数据存储；
-
-举例个例子
+位域是将数据以位的形式存储成员，并可以按位操作操作成员。好处显而易见，可以节省存储空间。位域的声明格式是：`类型 成员名称 : 位数`。例如下面的结构体：
 
 ``` C
-struct {
-  int a;
-  int b;
-} status1;      /* 这个结构体大小为八字节 */
-
-struct {
-  int a:1;      /* 冒号后面跟的数字表示该成员所占位数Bit */
-  int b:1;
-} status2;      /* 这个结构体大小为四字节 */
+struct foo {
+    int id : 8;
+    int result : 4;
+    int temperature : 8;
+}
 ```
 
-以上结果可以看出，虽然位域能指定成员所占位数但是**结构体的大小依旧是最宽数据类型的整数倍**，如果该结构体中有32个占一位的成员该结构体还是四字节，如果是33个则变为八字节。
+上面结构体中`id`占8 bit, `result`占4 bit，`temperature`占8 bit。
 
-详情可看->[C语言结构体位域及其存储-CSDN博客](https://blog.csdn.net/anyegongjuezjd/article/details/106891585)
+访问位域成员与访问普通结构体成员是一样的。那么如果位域成员溢出了会发生什么呢？会影响其他成员吗？多说无用，来段代码：
+
+``` C
+#include <stdio.h>
+
+struct foo {
+    int id: 8;
+    int result: 4;
+    int temperature: 8;
+};
+
+int main(void) {
+    struct foo bit_field_test;
+    bit_field_test.id = 125;
+    bit_field_test.result = 20;
+    bit_field_test.temperature = 78;
+
+    printf("id = %d, result = %d, temperature = %d\n", bit_field_test.id, bit_field_test.result,
+           bit_field_test.temperature);
+
+    return 0;
+}
+```
+
+运行结果：
+
+``` bash
+id = 125, result = 4, temperature = 78
+```
+
+`result`只占4位，也就是它的范围是-8 ~ +7，显然并不能存下20。其他成员的值并没有发生变化。所以如果一个成员溢出后并不会影响到其他成员。
+
+位域定义的位数不能超过其声明的类型大小，比如：
+
+``` C
+struct foo {
+    signed char field1: 9;
+    signed short field2: 20;
+};
+```
+
+编译结果：
+
+``` bash
+E:/C-Learn/main.c:2:17: error: width of 'field1' exceeds its type
+     signed char field1: 9;
+                 ^~~~~~
+E:/C-Learn/main.c:3:18: error: width of 'field2' exceeds its type
+     signed short field2: 20;
+                  ^~~~~~
+```
+
+`signed char`只有8位，我们定义了`field1`的宽度为9位，显然超过了`signed char`的大小，编译会报错。
+
+在位域中除了数据以外的其他部分都用空白填充。
+
+需要注意的是位域只能用整数，不可以用浮点与指针：
+
+``` C
+struct foo {
+    float fp8: 8;
+    int *ptr4: 4;
+    double fp16: 16;
+};
+```
+
+编译结果：
+
+``` bash
+E:/C-Learn/main.c:2:11: error: bit-field 'fp8' has invalid type
+     float fp8 : 8;
+           ^~~
+E:/C-Learn/main.c:3:10: error: bit-field 'ptr4' has invalid type
+     int *ptr4 : 4;
+          ^~~~
+E:/C-Learn/main.c:4:12: error: bit-field 'fp16' has invalid type
+     double fp16 : 16;
+            ^~~~
+```
+
+位域成员可以跨越两个存储空间，也就是说如果第一个空间的位置不够了，可以自动存到下一个空间。比如：
+
+``` C
+#include <stdio.h>
+
+struct foo {
+    short field1: 10;
+    short field2: 12;
+};
+
+int main(void) {
+    printf("sizeof struct foo: %zu\n", sizeof(struct foo));
+
+    return 0;
+}
+```
+
+运行结果：
+
+``` bash
+sizeof struct foo: 4
+```
+
+第一个成员`field1`已经用了10位，`short`只有16位，显然不够`field2`存储，因此需要在开辟一个`short`空间来存储`field2`，因此这个结构体大小是4字节。
+
+虽然位域可以节省存储空间，相比与位操作更直观。但是存在跨平台的问题。整数类型依赖机器和系统，建议搭配`stdint.h`使用。
+
+那么位域的应用有那些呢？下面是nginx的一部分代码片段（链接：[https://github.com/nginx/nginx/blob/00637cce366f17b78fe1ed5c1ef0e534143045f6/src/http/ngx_http_core_module.h#L234](https://github.com/nginx/nginx/blob/00637cce366f17b78fe1ed5c1ef0e534143045f6/src/http/ngx_http_core_module.h#L234)），可以看到这个结构体用到了位域。这个项目中有非常多地方用到位域。
+
+``` C
+struct ngx_http_addr_conf_s {
+    /* the default server configuration for this address:port */
+    ngx_http_core_srv_conf_t  *default_server;
+
+    ngx_http_virtual_names_t  *virtual_names;
+
+    unsigned                   ssl:1;
+    unsigned                   http2:1;
+    unsigned                   quic:1;
+    unsigned                   proxy_protocol:1;
+};
+```
 
 ## 联合体
 
-**概述：**联合体和结构体一样也是一种数据类型，声明方式和结构体很像同时每个联合体也可以设置不同类型的成员，声明时把关键字struct换成union就行了,不同的是联合体变量的所有成员共用一段内存空间（这段空间只能同时存储一个成员的值），成员之间“互斥”只能选择其中一个成员进行赋值。（个人觉得union翻译为共用体更能凸显出它的特点，联合体就不那么直白，所以有的时候看一个名词的英文原称更容易理解它的含义）
+> C大师 183
 
-由于联合体的所有成员共用一段内存空间所以有以下特性：
+联合体(`union`)，又叫共用体。联合体不同于结构体，**数据都存储在同一片内存空间**。其实共用体这个词更直白，数据都共用同一片内存区域。其声明方式与结构体类似，同样也可以使用`typedef`关键字定义类型名，使用也可以用`联合体.成员 联合体指针->成员`的形式。
 
-​	1.它的所有成员相对于基地址的偏移量都为0。
+由于数据都共用同一内存区域，那么意味着在某个时刻**只能使用其中的一种类型**，其他类型虽然也可以用，但结果可能并不是我们想要的。说白了，联合体就是**同一种数据的不同类型**，可以用它实现面向对象语言中的泛型。
 
-​    2.它的空间要大到足够容纳最"宽"的成员。
+明白上面的概念以后，那么联合体的大小就很而易见了，既然成员都共用一片内存区域，那么联合体就要保证每一个成员都能存的下。怎么保证每一个成员都能存的下呢？满足最大的那个成员能存下就行了，既然最大的都能存下了，那比它小的肯定可以存下。所以联合体的大小就是成员里最大的那一个。
 
-那么联合体究竟要多宽呢？联合体的大小要满足以下条件：
+那么联合体有什么用呢？下面举几个实际的案例。
 
-​	1.大小足够容纳最宽的成员。
+### 联合体在通信中的应用
 
-​	2.大小能被其包含的所有基本数据类型的大小所整除。
+一般在通信中，数据是按字节传输的。如果我们要传输`int, float, double`这种多字节的数据，可以用联合体，发送时将数据拆分成字节发送，接收时将字节组合成数据，下面是一个例子：
 
 ``` C
-union U
-{
-    char s[9]; /* 占9字节大小 */
-    int n;	   /* 占4字节大小 */
-    double d;  /* 占8字节大小 */
-};			   /* 为了满足能被double类型大小整除，整个联合体的大小为16字节而非9字节 */
+#include <stdio.h>
+#include <stdint.h>
+
+typedef union {
+    double data;
+    uint8_t byte[8];
+} fp_data_t;
+
+typedef union {
+    int32_t data;
+    uint8_t byte[4];
+} s32_data_t;
+
+/* In actually program, you can use interrupt to fill the buff. */
+fp_data_t recv_fp_buf;
+s32_data_t recv_s32_buf;
+
+void send_fp_data(fp_data_t *fp_data);
+
+void send_s32_data(s32_data_t *s32_data);
+
+int main(void) {
+    fp_data_t send_fp;
+    s32_data_t send_s32;
+
+    send_fp.data = 3.14f;
+    send_s32.data = 3321;
+    printf("Send data: %lf, %d\n", send_fp.data, send_s32.data);
+
+    send_fp_data(&send_fp);
+    send_s32_data(&send_s32);
+
+    printf("Received data: %lf, %d\n", recv_fp_buf.data, recv_s32_buf.data);
+
+    return 0;
+}
+
+void send_fp_data(fp_data_t *fp_data) {
+    /* Just a demonstration, fill the received buf.
+     * If successful, the received data is the same as the sent data. */
+    for (int i = 0; i < 8; ++i) {
+        recv_fp_buf.byte[i] = fp_data->byte[i];
+    }
+}
+
+void send_s32_data(s32_data_t *s32_data) {
+    /* Just a demonstration, fill the received buf.
+     * If successful, the received data is the same as the sent data. */
+    for (int i = 0; i < 4; ++i) {
+        recv_s32_buf.byte[i] = s32_data->byte[i];
+    }
+}
+
 ```
 
-联合体的的用处：
+运行结果：
 
-联合体可以进行一些位的操作，还能判断数据存储方式（大段还是小端）等等
+``` bash
+Send data: 3.140000, 3321
+Received data: 3.140000, 3321
 
-联合体的妙用->[在实际应用中联合体union的妙用 - Sharemaker - 博客园 (cnblogs.com)](https://www.cnblogs.com/Sharemaker/p/16962105.html)
+```
+
+这段代码只是简单的将发送的数据按字节填充到`recv_s32_buf, recv_fp_buf`中。如果成功，发送的数据将会与接收的数据相同。
+
+我们发送的`send_fp`是3.14，接收到的也是3.14；发送的`send_s32`是3321，接收到的也是3321。这就实现了数据的拆分与组合，符合我们的预期。
+
+在实际应用时我们还要考虑大小端的问题。大多数CPU都是小端序，编译器默认也是用小端序编译。如果是小端序编译，上面的代码适用于小端通信，也就是LSB(先发送低字节)。如果要用大端通信MSB，这种方法就要稍微变化一下了，将数组倒过来接收，先将接受到的数据填充在后面。就比如网络字节序就是大端模式，上面的代码就需要稍微变换一下了，一些通信协议为了方便调试阅读，也会用大端模式。
+
+### 联合体判断字节序
+
+字节序是在多字节数据类型中存储数据的顺序。例如一个整数1234567890，十六进制数为0x499602D2：
+
+```
+大端序存储在内存的样子: 49 96 02 D2
+小端序存储在内存的样子: D2 02 96 49
+```
+
+大端序对人类易于阅读，但是对于计算机来说就不太方便，比如要将这个数加1，那么就需要找到最后一位的位置后再加1.。而对于小端序来说只需要在第一个位置加1就行了。第一个字节就是一个数的低位。
+
+更多请参考：[端序 - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E5%AD%97%E8%8A%82%E5%BA%8F#%E5%B0%8F%E7%AB%AF%E5%BA%8F)。
+
+那么我们怎么用联合体判断字节序呢？很简单，只需要把一个数存在联合体内，判断第一个字节是低位还是高位就可以了：
+
+``` C
+#include <stdio.h>
+#include <stdint.h>
+
+int main(void) {
+    union {
+        uint32_t u32_data;
+        uint8_t byte_array[4];
+    } determine_endian;
+
+    determine_endian.u32_data = 0x11223344;
+
+    if (determine_endian.byte_array[0] == 0x11) {
+        printf("Big Endian! \n");
+    } else {
+        printf("Little Endian! \n");
+    }
+
+    return 0;
+}
+
+```
+
+我在`determine_endian.u32_data`里存了一个数，`0x11223344`。如果是大端序，这个联合体在内存中是`11 22 33 44`，`byte_array`的第一个数是`0x11`；如果是小端序，这个联合体在内存是`44 33 22 11`，`byte_array`第一个数是`0x44`。这样我们就可以判断是大端还是小端了。
+
+### 联合体模拟函数重载
+
+如果你学习过C++, Java, Python等OOP语言，那么你一定很熟悉函数重载。如果你不知道，也没关系，我会解释。
+
+函数重载就是我们可以在程序中存在**同名的函数**，同名函数**可以有不同的参数类型，参数数量和返回值**，当我们使用时编译器（或解释器）会**自动根据上下文来调用相应的函数。** 大多数OOP语言都支持函数重载。下面我以一个案例来演示如何用C语言实现部分函数重载。
+
+``` C
+#include <stdio.h>
+
+/**
+ * @brief Definition of param and return value type.
+ */
+typedef union {
+    int s32;
+    float fp32;
+} generic_data_t;
+
+/**
+ * @brief Determine the data type.
+ */
+typedef enum {
+    INT_DATA = 0x0U,
+    FP_DATA
+} generic_type_t;
+
+/**
+ * @brief Add two float number.
+ *
+ * @param a First number
+ * @param b Second number
+ * @return The sum of two number.
+ */
+float add_float(float a, float b) {
+    return a + b;
+}
+
+/**
+ * @brief Add two int number.
+ *
+ * @param a First number
+ * @param b Second number
+ * @return The sum of two number.
+ */
+int add_int(int a, int b) {
+    return a + b;
+}
+
+/**
+ * @brief Add two number.
+ *
+ * @param type The type of the data
+ * @param data1 First data
+ * @param data2 Second data
+ * @return The sum of two number.
+ */
+generic_data_t add(generic_type_t type, generic_data_t *data1,
+                   generic_data_t *data2) {
+    generic_data_t result;
+
+    switch (type) {
+        case FP_DATA: {
+            result.fp32 = add_float(data1->fp32, data2->fp32);
+        } break;
+
+        case INT_DATA: {
+            result.s32 = add_int(data1->s32, data2->s32);
+        } break;
+
+        default: {
+        } break;
+    }
+
+    return result;
+}
+
+int main(void) {
+    generic_data_t generic_data1, generic_data2;
+    generic_data_t result;
+
+    int s32_num1 = 10, s32_num2 = 16;
+    float fp32_num1 = 12.3f, fp32_num2 = 22.1f;
+
+    generic_data1.s32 = s32_num1;
+    generic_data2.s32 = s32_num2;
+    result = add(INT_DATA, &generic_data1, &generic_data2);
+    printf("s32_num1 + s32_num2 = %d\n", result.s32);
+
+    generic_data1.fp32 = fp32_num1;
+    generic_data2.fp32 = fp32_num2;
+    result = add(FP_DATA, &generic_data1, &generic_data2);
+    printf("fp32_num1 + fp32_num2 = %f\n", result.fp32);
+
+    return 0;
+}
+```
+
+运行结果：
+
+``` bash
+s32_num1 + s32_num2 = 26
+fp32_num1 + fp32_num2 = 34.400002
+
+```
+
+这样`add`函数就可以处理不同的数据了。可能你会觉得这怎么这么麻烦，其实OOP实现函数重载的原理跟这个是一样的，给同名函数给不同的标识，根据类型和参数数量调用不同的函数。
+
+这个案例不支持不同参数数量。如果要实现不同的参数数量，我们可以借助可变参实现。
+
+还可以通过宏定义模拟函数重载，比如用`__VA_ARGS__`这种更花的玩法。C11添加了`_Generic`关键字，可以通过它实现函数重载。可以参照：[宏定义的黑魔法，C语言模拟函数重载 - 王晨晓的博客 | Chinsyo Blog](https://chinsyo.com/2020/05/06/macro-magic-overload/)
 
 ## 枚举
 
@@ -867,9 +1187,6 @@ enum DAY
 4. 枚举变量的大小和int类型一致都是4字节（我在VS上测试的是这样的）
 
 ps.虽然一般枚举变量赋值都是固定的几个值（枚举元素中的一个），但是如果赋了其它值编译也不会报错。
-
-枚举的妙用：(涛哥你补充吧)
-
 
 
 下面再看看枚举与#define 宏的区别：
@@ -941,7 +1258,7 @@ offset of member5: 8
 
 我们可以看到结构体后加`__attribute((packed))`后取消了内存对齐，所有成员在内存里都是连续的，偏移量不是对齐数的整数倍。
 
-`__attribute__((align(n)))`是设置内存对齐，也就是说变量或类型大小必须是n的整数倍，注意这里的n只能是2的幂次方。请看以下代码：
+`__attribute__((align(n)))`是设置内存对齐，也就是说变量或类型大小必须是n的整数倍，如果作用在结构体上，**它只会扩大结构体的大小**，不像`#pramga pack(n)`会缩小结构体大小。注意这里的n只能是2的幂次方。请看以下代码：
 
 ``` C
 #include <stddef.h>
@@ -950,7 +1267,7 @@ offset of member5: 8
 
 typedef struct struct1 {
     int8_t member1;
-    __attribute__((aligned(4))) int16_t member2;
+    int16_t member2 __attribute__((aligned(4)));
 } struct1_t;
 
 int main(void) {
@@ -985,26 +1302,51 @@ offset of member 2 in struct 2: 4
 #include <stdint.h>
 #include <stdio.h>
 
+void align_test(void);
+void no_align_test(void);
+
 int main(void) {
+    align_test();
+    no_align_test();
+    return 0;
+}
+
+void align_test(void) {
     int16_t s16_num;
-    int16_t s16_num_aligned __attribute__((aligned(16)));
+    int16_t s16_aligned __attribute__((aligned(16)));
+    uint8_t u8_num;
+    printf("Align variable address: \n");
+    printf("s16_num address: 0x%p, align: %zu\n", &s16_num, alignof(s16_num));
+    printf("s16_aligned address: 0x%p, align: %zu\n", &s16_aligned,
+           alignof(s16_aligned));
+    printf("u8_num address 0x%p, align: %zu\n", &u8_num, alignof(u8_num));
+}
+
+void no_align_test(void) {
+    int16_t s16_num;
+    int16_t s16_no_aligned;
     uint8_t u8_num;
 
+    printf("\nNo align variable address: \n");
     printf("s16_num address: 0x%p, align: %zu\n", &s16_num, alignof(s16_num));
-    printf("s16_num_aligned address: 0x%p, align: %zu\n", &s16_num_aligned,
-           alignof(s16_num_aligned));
+    printf("s16_no_aligned address: 0x%p, align: %zu\n",
+           &s16_no_aligned, alignof(s16_no_aligned));
     printf("u8_num address 0x%p, align: %zu\n", &u8_num, alignof(u8_num));
-
-    return 0;
 }
 ```
 
 运行结果：
 
 ``` bash
-s16_num address: 0x000000000061FE1E, align: 2
-s16_num_aligned address: 0x000000000061FE10, align: 16
-u8_num address 0x000000000061FE0F, align: 1
+Align variable address:
+s16_num address: 0x000000000061FDEE, align: 2
+s16_aligned address: 0x000000000061FDE0, align: 16
+u8_num address 0x000000000061FDDF, align: 1
+
+No align variable address:
+s16_num address: 0x000000000061FDEE, align: 2
+s16_no_aligned address: 0x000000000061FDEC, align: 2
+u8_num address 0x000000000061FDEB, align: 1
 
 ```
 
@@ -1012,13 +1354,9 @@ u8_num address 0x000000000061FE0F, align: 1
 
 ![attribute_variable_aligned](C-basic/attribute_variable_aligned.png)
 
-根据输出的地址，可以看到`s16_num_aligned`其实只占用了`0x61FE10 ~ 0x61FE11`两个地址，其他区域为了对齐，都是空白的。
+两个函数的局部变量的类型、数量、顺序都是一样的。区别在于`aalign_test`函数会对`s16_aligned`变量进行对齐，而`no_align_test`不会对`s16_no_aligned`变量对齐。根据输出的地址，可以看到如果不指定对齐，那么三个局部变量是紧挨在一起的。如果指定对齐，`s16_aligned`变量的地址就会在`0x61FDE0`上，**`0x61FDEC`不能被16也就是`0x10`整除，而`0x61FDE0`可以被16整除。**
 
 > 你可能会问，`s16_num`是先声明的，为什么地址在下面？这是因为栈一般是向下生长的，也就是从高地址往低地址生长。那么按照顺序分配空间的话`s16_num`就在高地址了。而我们一般看内存是从低地址往高地址看的。（会有一节详细讲这个问题）
-
-其实到这里想必你也明白了，内存对齐的核心思想就是让CPU更方便的获取操作数，提高CPU读取数据的速度，以空间换取时间。那么怎么对齐呢，让他的大小是对齐数的整数倍就可以了。
-
-如果不内存对齐，以32位CPU举例，它可以从内存中一次读取4 byte数据。而读取1 byte数据就需要想办法将其他3 byte数据去掉。而其他3 byte如果全是空的，那就不需要去掉了，反正又不影响。
 
 ## 函数调用约定
 
