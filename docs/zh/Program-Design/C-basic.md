@@ -1148,53 +1148,178 @@ fp32_num1 + fp32_num2 = 34.400002
 
 ## 枚举
 
-你可能觉得枚举没什么用，但其实枚举非常强大
+> C大师 182
 
-当你的程序中存在一堆常量时，你就可以考虑使用枚举将所有常量整合在一起，并给他们其上别名方便记忆（实际上枚举就像是将一堆宏定义整合在了一起）
+你可能觉得枚举没什么用，但其实枚举非常强大。枚举说白了就是列举一组常量，方便阅读与调试。
+
+枚举相比与直接用`#define`，会更方便。要注意的是枚举的成员是以逗号结尾，这一点与结构体和联合体不同。
+
+如果不定义成员初值，默认从0开始递增。如果中间有个成员定义初值，后面的成员会从这个成员的值开始递增。
 
 ``` C
-#define MON  1
-#define TUE  2
-#define WED  3
-#define THU  4
-#define FRI  5
-#define SAT  6
-#define SUN  7 /* 宏定义的方法，给常量起别名方便记忆 */
+enum {
+    MEMBER1, /* = 0 */
+    MEMBER2, /* = 1 */
+    MEMBER3, /* = 2 */
+};
+
+enum {
+    MEMBER1 = 1,
+    MEMBER2, /* = 2 */
+    MEMBER3, /* = 3 */
+};
+
+enum {
+    MEMBER1, /* = 0 */
+    MEMBER2, /* = 1 */
+    MEMBER3, /* = 2 */
+    MEMBER4 = 1,
+    MEMBER5, /* = 2 */
+    MEMBER6  /* = 3 */
+};
 ```
 
-``` C
+**枚举也是一种数据类型**，用枚举可以定义变量。那你可能会问枚举这种类型有什么用呢？枚举就是把变量所有可能取的值列出来，并用标识符标记。主要定义一些有限的事物，比如星期、月份、状态码、错误码等。
 
-enum DAY
+当一个变量只有几种取值的时候，就可以考虑用枚举。枚举在调试时显示当前枚举所定义的标识符，而宏定义只有一个数字。
+
+枚举常常与`switch-case`搭配使用。`switch-case`的意思是根据不同的情况做不同的事情，那么我们就可以用枚举来定义不同的情况，然后用`switch-case`处理。下面举一个案例：
+
+``` C
+#include <stdio.h>
+#include <string.h>
+
+typedef enum {
+    ROOT = 0U,
+    ADMIN,
+    USER,
+    GUEST
+} identity_t;
+
+typedef struct {
+    char name[10];
+    char password[30];
+    identity_t identity;
+} user_t;
+
+void delete_root_file(user_t *user) {
+    char password[30];
+    printf("User name: %s\n", user->name);
+
+    puts("Please Input password: ");
+    gets(password);
+    if (strcmp(password, user->password)) {
+        puts("Password error! \n");
+    }
+
+    switch (user->identity) {
+        case ROOT:
+        case ADMIN: {
+            puts("Deleted root file. \n");
+        } break;
+
+        case USER:
+        case GUEST: {
+            puts("Permission Denied. \n");
+        } break;
+
+        default: {
+            puts("Unknown User. \n");
+        } break;
+    }
+}
+
+int main(void) {
+    user_t root = {"root", "123456", ROOT};
+    user_t user = {"user", "123456", USER};
+    user_t guest = {"guest", "123456", GUEST};
+
+    delete_root_file(&root);
+    delete_root_file(&user);
+    delete_root_file(&guest);
+
+    return 0;
+}
+
+```
+
+运行结果：
+``` bash
+User name: root
+Please Input password:
+123456
+Deleted root file.
+
+User name: user
+Please Input password:
+123456
+Permission Denied.
+
+User name: guest
+Please Input password:
+123456
+Permission Denied.
+
+```
+
+这里用枚举简单定义了几个用户权限级别，只有`ROOT, ADMIN`级别的用户才可以删除`root`文件，其他用户操作提示`Permission Denied.`，当然这个案例比较简单，你可以带到实际的程序中去思考怎么使用枚举。
+
+既然枚举可以定义情况，那么我们就可以用枚举定义状态实现状态机。参照软件工程常用方法。
+
+如果你还是觉得枚举没什么用，多说无用，我们来看看freemodbus的源码：
+
+``` C
+/* https://github.com/cwalter-at/freemodbus/blob/f16701094ca64df3a0366dde1c186a55976d61e4/modbus/rtu/mbrtu.c#L61 */
+typedef enum
 {
-      MON=1, TUE, WED, THU, FRI, SAT, SUN
-};  /* 枚举的方法，也能起到宏定义的效果 */
+    STATE_TX_IDLE,              /*!< Transmitter is in idle state. */
+    STATE_TX_XMIT               /*!< Transmitter is in transfer state. */
+} eMBSndState;
+
+static volatile eMBSndState eSndState;
+
+/* https://github.com/cwalter-at/freemodbus/blob/f16701094ca64df3a0366dde1c186a55976d61e4/modbus/rtu/mbrtu.c#L284 */
+BOOL
+xMBRTUTransmitFSM( void )
+{
+    BOOL            xNeedPoll = FALSE;
+
+    assert( eRcvState == STATE_RX_IDLE );
+
+    switch ( eSndState )
+    {
+        /* We should not get a transmitter event if the transmitter is in
+         * idle state.  */
+    case STATE_TX_IDLE:
+        /* enable receiver/disable transmitter. */
+        vMBPortSerialEnable( TRUE, FALSE );
+        break;
+
+    case STATE_TX_XMIT:
+        /* check if we are finished. */
+        if( usSndBufferCount != 0 )
+        {
+            xMBPortSerialPutByte( ( CHAR )*pucSndBufferCur );
+            pucSndBufferCur++;  /* next byte in sendbuffer. */
+            usSndBufferCount--;
+        }
+        else
+        {
+            xNeedPoll = xMBPortEventPost( EV_FRAME_SENT );
+            /* Disable transmitter. This prevents another transmit buffer
+             * empty interrupt. */
+            vMBPortSerialEnable( TRUE, FALSE );
+            eSndState = STATE_TX_IDLE;
+        }
+        break;
+    }
+
+    return xNeedPoll;
+}
+
 ```
 
-枚举完全可以实现宏定义起别名的效果，同时还可以定义枚举类型的变量——当你想要设置一种变量只有固定的几个取值时你就可以用枚举变量，将想取的值设置为枚举元素即可。
-
-不过要注意枚举的以下特点：
-
-1. 枚举的定义格式：
-
-   ``` C
-   enum　枚举名　{枚举元素1,枚举元素2,……};  /* 注意不同元素之间使用,隔开而不是;这一点和结构体与联合体不同 */
-   ```
-
-2. 不做赋值枚举默认第一个元素的值为0之后元素依次＋1，当然也可以直接用等号赋初值
-
-3. 枚举变量的定义方式和结构体变量一致
-
-4. 枚举变量的大小和int类型一致都是4字节（我在VS上测试的是这样的）
-
-ps.虽然一般枚举变量赋值都是固定的几个值（枚举元素中的一个），但是如果赋了其它值编译也不会报错。
-
-
-下面再看看枚举与#define 宏的区别：
-
-1.#define 宏常量是在预编译阶段进行简单替换。枚举常量则是在编译的时候确定其值。
-
-2.一般在编译器里，可以调试枚举常量，但是不能调试宏常量。
-
+这里用枚举定义了发送状态，然后用`switch-case`来进行处理。枚举用来处理状态、错误时非常有用，而且非常容易扩展，多用就知道它的好处了。
 
 ## 指针
 
