@@ -765,7 +765,7 @@ offset of member5: 8
 
 如果我们写成`#pragma pack()`，也就是括号内不写对齐数，那么就会取消掉前面我们用`#pragma pack(n)`设置的默认对齐数，还原成编译器的默认设置。
 
-除此之外我们还可以用`__attribute__`关键字设置内存对齐，参照[下面的内容](/Program-Design/C-basic/#_16)。注意`__attribute__`关键字是GNU对ISO C的扩展，支持GCC, Clang等编译器，VS默认的MSVC是不支持的。如果你的代码要在不同编译器下编译，需要用宏定义判断编译器做好处理。
+除此之外我们还可以用`__attribute__`关键字设置内存对齐，参照[下面的内容](C-basic.md#__attribute__)。注意`__attribute__`关键字是GNU对ISO C的扩展，支持GCC, Clang等编译器，VS默认的MSVC是不支持的。如果你的代码要在不同编译器下编译，需要用宏定义判断编译器做好处理。
 
 为什么要把内存对齐讲的这么细呢？~~因为面试会问~~
 

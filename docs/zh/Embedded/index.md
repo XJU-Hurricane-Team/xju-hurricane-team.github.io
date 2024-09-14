@@ -12,6 +12,8 @@
 
 - [STM32常用外设与使用](stm32-peripherals.md)
 
+- [CMSIS配置向导标记](cmsis_config_wizard.md)
+
 - [调试器简介](debugger.md)
 
 - [Startup文件浅析](startup.md)
