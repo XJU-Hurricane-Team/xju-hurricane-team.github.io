@@ -11,8 +11,7 @@ hide:
 
 点击右上角的眼睛可以切换深色、浅色模式，文章的左侧是目录，右侧是文章大纲。
 
-> 有些是在挖坑，写了会加超链接。
-
-[程序设计](Program-Design/index.md){ .md-button }
-[嵌入式技术](Embedded/index.md){ .md-button }
-[Linux基础](Linux/index.md){ .md-button }
+[C语言](https://deadline039.github.io/Cpp/){ .md-button }
+[C编码风格与规范](Program-Design/C-code-style.md){ .md-button }
+[嵌入式技术](https://deadline039.github.io/Embedded/){ .md-button }
+[Linux基础](https://deadline039.github.io/Linux/){ .md-button }
