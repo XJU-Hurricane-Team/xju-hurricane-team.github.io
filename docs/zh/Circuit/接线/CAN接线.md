@@ -4,25 +4,49 @@
 
 我们一般规定红线为高、黑线为低，但是淘宝上购置的端子线、不同品牌电机接口各有不同，仅凭线的颜色分辨高低不可取，所以对目前使用的电机进行整理。
 
-大疆电机
+## 大疆电机
 
-M3508
+GH1.25卡扣面对自己，**左黑右红**
+
+### M3508
+
+<center class="half">
+<img src="./Picture/3508.png" width=400/>
+<img src="./Picture/右红.jpg" width=400/>
+</center>
+
+### M2006
+
+<center class="half">
+<img src="./Picture/3508.png" width=400/>
+<img src="./Picture/右红.jpg" width=400/>
+</center>
+
+### GM6020
+
+<center class="half">
+<img src="./Picture/3508.png" width=400/>
+<img src="./Picture/右红.jpg" width=400/>
+</center>
+
+## 达妙电机
+
+GH1.25卡扣面对自己，**左红右黑**
+
+### DM4310
 
 
 
-M2006
+### DM8006
 
-GM6020
+<center class="half">
+<img src="./Picture/DM8006.png" width=400/>
+<img src="./Picture/左红.jpg" width=400/>
+</center>
 
-达妙电机
-
-DM8006
+### DM6220
 
 
-
-DM6220
-
-DM4310
 
 CubeMars电机
 
