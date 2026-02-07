@@ -217,6 +217,8 @@ nav:
           - FOC学习-硬件版: Circuit/电驱/FOC学习-硬件版.md
       - 电源:
           - MP5048并联大功率稳压电源: Circuit/电源/MP5048并联大功率稳压电源.md
+      - 接线:
+          - CAN & RS485接线: Circuit/接线/CAN & RS485接线.md
       - 其他:
           - 常用外设引脚顺序: Circuit/其他/常用外设引脚顺序.md
           - F4-ADS遥控器: Circuit/其他/F4-ADS遥控器.md
