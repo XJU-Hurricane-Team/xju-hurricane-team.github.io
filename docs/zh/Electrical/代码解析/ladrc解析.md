@@ -3,7 +3,7 @@
 > **最近修改日期**：2026-02-07
 > **参与者**：Jackrainman
 > **前置知识**：[LADRC.md](../ControlTheory/LADRC.md)
-> **注**：ladrc 与 td 已分离，文档尚未更新
+> **注**：ladrc 与 td 已分离，具体内容文档尚未更新
 
 ---
 
