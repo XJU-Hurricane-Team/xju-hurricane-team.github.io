@@ -132,11 +132,11 @@ nav:
           - C编码风格与规范: Electrical/C语言/Program-Design/C-code-style.md
       - STM32:
           - Stm32: Electrical/Stm32/index.md
-          - Stm32基础: 
+          - Stm32基础:
             - Stm32简介: Electrical/Stm32/Stm32基础/Stm32简介.md
             - 系统架构: Electrical/Stm32/Stm32基础/系统架构.md
             - 启动过程: Electrical/Stm32/Stm32基础/启动过程.md
-          - Stm32开发: 
+          - Stm32开发:
             - 项目组成: Electrical/Stm32/Stm32开发/项目组成.md
             - 开发环境: Electrical/Stm32/Stm32开发/开发环境.md
           - Stm32通信:
@@ -146,7 +146,7 @@ nav:
             - CAN: Electrical/Stm32/Stm32外设/CAN.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
-      - Motors: 
+      - Motors:
           - 电机简介: Electrical/Motors/index.md
           - 大疆电机: Electrical/Motors/大疆电机.md
           - 达妙电机: Electrical/Motors/达妙电机.md
@@ -155,11 +155,12 @@ nav:
       - 代码解析:
           - can_list: Electrical/代码解析/can_list解析.md
           - msg_protocol: Electrical/代码解析/msg_protocol解析.md
+          - ladrc: Electrical/代码解析/ladrc解析.md
       - 控制理论:
           - 控制论基础: Electrical/ControlTheory/控制论基础.md
           - PID控制详解: Electrical/ControlTheory/PID控制.md
-          - 控制论进阶: Electrical/ControlTheory/控制论进阶.md
           - LADRC: Electrical/ControlTheory/LADRC.md
+          - 控制论进阶: Electrical/ControlTheory/控制论进阶.md
       - 其他:
           - 电控基础: Electrical/Other/电控基础.md
           - 树莓派: Electrical/Other/树莓派.md
@@ -236,3 +237,4 @@ nav:
       - 友链: 友链/index.md
       - Deadline039's blog: https://deadline039.github.io/
       - PickingChip's blog: https://pickingchip.github.io/
+      - Jackrainman's blog: https://jackrainman.github.io/

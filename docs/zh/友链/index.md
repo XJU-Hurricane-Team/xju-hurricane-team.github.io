@@ -3,3 +3,5 @@
 `Deadline039`：2022届电控成员
 
 `PickingChip`：2023届电控成员
+
+`Jackrainman`：2024届电控成员
