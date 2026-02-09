@@ -1,12 +1,18 @@
-# 欢迎来到镜神的知识网络 👋
+---
+title: "新疆大学飓风战队文档站"
+hide:
+  - navigation
+  - toc
+comments: true 
+---
 
-这里是我存放第二大脑的地方。
+# 欢迎访问新疆大学飓风战队文档站
 
-!!! tip "网站说明"
-    本站点基于 MkDocs 构建，部署于 GitHub Pages。
+这里会包括电控、电路、视觉、机械等资料，不断更新中……敬请期待！
 
-## 近期更新
-- [x] 搭建知识库框架
-- [x] 补充日常工具（Lab）
-- [x] 补充编程例程
+欢迎提出意见，参与讨论！
 
+[电控](Electrical/index.md){ .md-button }
+[视觉](Vision/index.md){ .md-button }
+[机械](Mechanical/index.md){ .md-button }
+[电路](Circuit/index.md){ .md-button }
