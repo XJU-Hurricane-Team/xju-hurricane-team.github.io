@@ -139,6 +139,7 @@ nav:
           - Stm32开发: 
             - 项目组成: Electrical/Stm32/Stm32开发/项目组成.md
             - 开发环境: Electrical/Stm32/Stm32开发/开发环境.md
+            - 调试工具: Electrical/Stm32/Stm32开发/调试工具.md
           - Stm32外设:
             - USART: Electrical/Stm32/Stm32外设/USART.md
             - IIC: Electrical/Stm32/Stm32外设/IIC.md
