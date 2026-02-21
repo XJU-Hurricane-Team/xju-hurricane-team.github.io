@@ -1,5 +1,3 @@
-# SPI 总线介绍与使用指南
-
 ## 一、SPI 总线概述
 
 SPI（Serial Peripheral Interface，串行外设接口）是一种由摩托罗拉公司开发的同步串行通信协议，主要用于短距离、高速率的芯片间通信。SPI 采用主从（Master-Slave）架构，支持全双工通信，广泛应用于 MCU 与外设（如传感器、Flash、显示屏、ADC/DAC 等）之间的数据交互。
@@ -57,7 +55,7 @@ CPHA=1：在 SCK 第二个跳变沿（上升 / 下降）采样数据。
 
 #### 1. 引脚初始化（gpio.c）
 
-```
+```c
 #include "gpio.h"
 
 void MX_GPIO_Init(void)
@@ -86,7 +84,7 @@ void MX_GPIO_Init(void)
 
 #### 2. SPI 外设初始化（spi.c）
 
-```
+```c
 #include "spi.h"
 
 SPI_HandleTypeDef hspi1;
@@ -123,7 +121,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* spiHandle)
 
 ### 3.2 SPI 读写函数封装（spi.c）
 
-```
+```c
 #include "spi.h"
 #include "gpio.h"
 
@@ -170,7 +168,7 @@ HAL_StatusTypeDef SPI_ReadWrite(uint8_t* tx_buf, uint8_t* rx_buf, uint16_t len)
 
 ### 3.3 主函数调用示例（main.c）
 
-```
+```c
 #include "main.h"
 #include "spi.h"
 #include "gpio.h"
