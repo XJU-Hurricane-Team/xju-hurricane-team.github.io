@@ -6,6 +6,7 @@
 
 - [正点原子开发板资料](http://47.111.11.73/docs/index.html)
 - [野火开发板文档](https://doc.embedfire.com/mcu/stm32/f103/hal_general/zh/latest/index.html)
+- [波特律动文档](https://docs.keysking.com/docs/stm32/intro)
 - [安富莱](https://www.armfly.com/product/STM32-V5/STM32-V5.shtml)
 
 视频教程：
