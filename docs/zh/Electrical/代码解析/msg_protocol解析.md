@@ -209,7 +209,7 @@ struct msg_instance {
 
 流程如下：
 
-<img src=".\Picture\msg_send.png" style="zoom: 67%;" />
+![](.\Picture\msg_send.png)
 
 #### 扩缩缓存区
 
@@ -247,7 +247,7 @@ if (msg->send_buf_len <= data_len + 5) {
 
 流程如下：
 
-<img src=".\Picture\msg-rec.png" style="zoom: 33%;" />
+![](.\Picture\msg-rec.png)
 
 #### 消息数据入队
 
