@@ -147,12 +147,18 @@ nav:
             - CAN: Electrical/Stm32/Stm32外设/CAN.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
+          - SystemView: Electrical/RTOS/SystemView配置指南/SystemView配置指南.md
       - Motors: 
           - 电机简介: Electrical/Motors/index.md
           - 大疆电机: Electrical/Motors/大疆电机.md
           - 达妙电机: Electrical/Motors/达妙电机.md
           - 步进电机: Electrical/Motors/步进电机.md
           - VESC电机: Electrical/Motors/VESC电机.md
+      - MicroROS:
+          - stm32运行microros: Electrical/MicroROS/stm32上运行microros/stm32上运行microros.md
+          - 自定义消息+静态库: Electrical/MicroROS/自定义消息+静态库/自定义消息+静态库.md
+          - 头文件功能分类: Electrical/MicroROS/头文件功能分类.md
+          - 执行器管理: Electrical/MicroROS/执行器管理.md
       - 代码解析:
           - can_list: Electrical/代码解析/can_list解析.md
           - msg_protocol: Electrical/代码解析/msg_protocol解析.md
