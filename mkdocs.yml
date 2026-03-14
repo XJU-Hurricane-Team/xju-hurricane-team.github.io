@@ -208,6 +208,8 @@ nav:
           - 说明: Vision/常用工具说明/说明.md
       - 电赛_视觉部分:
           - 2025C: Vision/电赛/2025C.md
+      - Tools:
+          - X11Forwarding: Vision/Tools/x11转发远程服务桌面.md
   - 机械:
       - 关于机械: Mechanical/index.md
       - 机械1:
