@@ -203,13 +203,13 @@ nav:
           - 随机近似(SA): Vision/强化学习/3.随机近似(SA).md
           - 时序差分: Vision/强化学习/4.时序差分.md
           - 值函数近似: Vision/强化学习/5.值函数近似.md
-      - 常用工具说明:
-          - 常用工具: Vision/常用工具说明/常用工具.md
-          - 说明: Vision/常用工具说明/说明.md
-      - 电赛_视觉部分:
-          - 2025C: Vision/电赛/2025C.md
       - Tools:
           - X11Forwarding: Vision/Tools/x11转发远程服务桌面.md
+          - 常用工具: Vision/Tools/常用工具.md
+          - ROS2工具: Vision/Tools/ROS工具.md
+          - 双系统安装: Vision/Tools/双系统安装.md
+      - 视觉复现:
+          - 2025C: Vision/电赛/2025C.md
   - 机械:
       - 关于机械: Mechanical/index.md
       - 机械1:
