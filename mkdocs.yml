@@ -188,7 +188,7 @@ nav:
           - 雷达定位信息: Vision/navigation/lidar/雷达定位信息.md
       - 深度学习:
         - 知识点: Vision/深度学习/知识点.md
-        - ###### yolo实践: Vision/深度学习/yolo实践.md
+        - yolo实践: Vision/深度学习/yolo实践.md
       - 强化学习:
           - 强化学习: Vision/强化学习/强化学习.md
           - 强化学习基础: Vision/强化学习/0.1强化学习基础.md
