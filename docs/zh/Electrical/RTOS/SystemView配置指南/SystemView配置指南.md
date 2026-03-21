@@ -81,7 +81,6 @@ https://github.com/SEGGERMicro/RTT.git
 
    ```c
    SEGGER_SYSVIEW_Conf();  // 配置 RTT 传输通道和系统时钟基准
-   SEGGER_SYSVIEW_Start(); 
    ```
 
 ### 构建下载

@@ -1,12 +1,12 @@
 # 概述
 
-**本篇以`cubemx`模板构建`microros`代码，实现stm32F429IGT6运行简单例程。**
+**本篇以`cubemx`模板构建`microros`代码，实现stm32F429IGT6运行简单例程。总体分为嵌入式端和linux代理端两部分构建**
 
-官方学习网站：https://micro.ros.org/
+可参考：[官方学习网站](https://micro.ros.org/)
 
 # 嵌入式端构建流程
 
-以该仓库为教程：https://github.com/micro-ROS/micro_ros_stm32cubemx_utils
+以[cubemx官方仓库](https://github.com/micro-ROS/micro_ros_stm32cubemx_utils)为教程：
 
 **大致步骤：**
 
@@ -184,7 +184,9 @@ void StartDefaultTask(void *argument)
 
 # 代理端构建
 
-​        如果通信协议选择使用的**micro-XRCE-DDS 协议**，在运行ROS2的主机上还需构建`microros_agent`,官方教程参照：https://github.com/micro-ROS/micro_ros_setup?tab=readme-ov-file。按照官方教程完整流程构建，除了可配置`miccroros_agent`，**还可获得所有源码，如之前缺失的.c文件。**但文件层次比较复杂，需仔细研究一番。
+​        如果通信协议选择使用的**micro-XRCE-DDS 协议**，在运行ROS2的主机上还需构建`microros_agent`,可参照[官方教程](https://github.com/micro-ROS/micro_ros_stm32cubemx_utils)。按照官方教程完整流程构建，除了可配置`miccroros_agent`，**还可获得所有源码，如之前缺失的.c文件。**但文件层次比较复杂，需仔细研究一番。
+
+> 代理端是在linux环境下搭建。
 
 ​    **若只构建`microros_agent`:**
 
