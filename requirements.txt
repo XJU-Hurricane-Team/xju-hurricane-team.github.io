@@ -8,4 +8,5 @@ mdx_truly_sane_lists
 jieba
 mkdocs-static-i18n
 mkdocs-minify-plugin
-mkdocs-document-dates
+mkdocs-git-revision-date-localized
+mkdocs-git-authors-plugin
