@@ -151,7 +151,7 @@ GM6020电机为为直驱无刷电机，**使用前需要通过电机背部的拨
 
 #### GO-M8010-6
 
-![img](.\Picture\GO-M8010-6.png){.img-scale-50}
+![img](./Picture/GO-M8010-6.png){.img-scale-50}
 
 简介：无刷关节电机，内置减速箱，扭矩极大，适用于大负载的场景。底层采用 RS485 串行物理总线进行通信，通过控制 RE/DE 引脚切换收发状态。电机支持三种模式：0（空闲）、1（FOC）、2（标定），在其核心的FOC模式下，电机支持位置、速度和力矩的混合阻抗控制。
 
@@ -159,7 +159,7 @@ GM6020电机为为直驱无刷电机，**使用前需要通过电机背部的拨
 
 参数：
 
-![](.\Picture\GO-M8010-6_ex.png)
+![](./Picture/GO-M8010-6_ex.png)
 
 文档：[宇树科技 文档中心](https://support.unitree.com/home/zh/Motor_SDK_Dev_Guide/overview)
 
