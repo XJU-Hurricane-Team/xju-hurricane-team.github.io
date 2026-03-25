@@ -1,7 +1,3 @@
-> 更新时间：2026/2/21
->
-> 参与者：Dominate0017，PinckingChip
-
 ### SPI 简介
 
 SPI（Serial Peripheral Interface，串行外设接口）是一种由摩托罗拉公司开发的同步串行通信协议，主要用于短距离、高速率的芯片间通信。SPI 采用主从（Master-Slave）架构，支持全双工通信，广泛应用于 MCU 与外设（如传感器、Flash、显示屏、ADC/DAC 等）之间的数据交互，本文以 STM32F1 系列的 SPI 接口为例介绍。SPI 总线的主要特点如下：

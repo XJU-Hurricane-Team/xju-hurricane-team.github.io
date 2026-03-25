@@ -1,7 +1,3 @@
-> 更新时间：2026/2/21
->
-> 参与者：Dominate0017，PinckingChip
-
 ### IIC 简介
 
 集成电路总线（Inter-Integrated Circuit，IIC也写作 I2C），由飞利浦公司开发，主打极简布线、多主多从架构，广泛应用于嵌入式系统中低速外设的近距离对接特性如下：

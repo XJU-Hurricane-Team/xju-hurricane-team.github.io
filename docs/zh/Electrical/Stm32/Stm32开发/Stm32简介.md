@@ -1,7 +1,3 @@
-> 更新时间：2025/2/6
->
-> 参与者：PickingChip
-
 STM32 是意法半导体 (STMicroelectronics) 推出的基于 ARM Cortex-M 内核的微控制器系列，有着丰富的外设资源和良好的实时性以及社区开发环境。
 
 ARM Cortex系列：

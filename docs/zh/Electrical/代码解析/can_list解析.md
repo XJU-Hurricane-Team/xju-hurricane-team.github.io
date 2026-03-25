@@ -1,7 +1,3 @@
-> 更新日期：2026/2/2
->
-> 参与者：Jackrainman，PickingChip
->
 > 源码地址：[can_list](https://github.com/XJU-Hurricane-Team/STM32-Driver/tree/main/Motor/can_list)
 
 ### 解决什么问题

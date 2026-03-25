@@ -1,7 +1,3 @@
-> 更新日期：2026/2/1
->
-> 参与者：KkarinL15
->
 > 源码地址：[message-protocol](https://github.com/XJU-Hurricane-Team/message-protocol)
 
 ### 函数调用
@@ -23,7 +19,7 @@
 
 环形缓冲区
 
-```
+```c
 typedef struct {
     uint32_t size;          /*!< 缓冲区大小 */
     uint32_t mask;          /*!< 大小掩码 */
@@ -39,7 +35,7 @@ typedef struct {
 
 消息队列管理结构
 
-```
+```c
 struct msg_instance {
     msg_recv_callback_t recv_callback; /*!< 接收回调函数 */
     UART_HandleTypeDef *send_uart;     /*!< 发送串口句柄 */
@@ -103,7 +99,7 @@ struct msg_instance {
 
 - 在`message_register_send_uart`中使用信号量保护发送缓存区
 
-  ```
+  ```c
   struct msg_instance *msg = msg_list[msg_id];
   if (msg->send_buf_semp == NULL) {
           msg->send_buf_semp = xSemaphoreCreateMutex();
@@ -112,7 +108,7 @@ struct msg_instance {
 
 - 在`message_send_data`中
 
-  ```
+  ```c
   xSemaphoreTake(msg->send_buf_semp, portMAX_DELAY);//用信号量等待获取发送权限
   									.
   									.
@@ -126,7 +122,7 @@ struct msg_instance {
 
   得到`CRC8`校验值
 
-  ```
+  ```c
   #if MSG_ENABLE_CRC8
       /* CRC8 校验结果 */
       uint8_t crc8_value = calc_crc8(data, data_len);
@@ -135,7 +131,7 @@ struct msg_instance {
 
   将`CRC8`校验值拆分为两个字节存入数据帧
 
-  ```
+  ```c
   #if MSG_ENABLE_CRC8
       /* 添加 CRC8 帧校验数据, 拆成两个字节, 每个字节小于 0x10, 这样可以避免转义 */
       send_buf[buf_idx] = (crc8_value >> 4) & 0x0F;
@@ -149,7 +145,7 @@ struct msg_instance {
 
   定义`CRC8`校验值变量
 
-  ```
+  ```c
   #if MSG_ENABLE_CRC8
       /* 接收到的 CRC8 校验值 */
       uint8_t crc_recv;
@@ -160,7 +156,7 @@ struct msg_instance {
 
   检验数据包长度与实际接收长度是否一致
 
-  ```
+  ```c
   /* 验证数据包长度与实际接收长度是否一致, 数据包第二个字节是长度 */
   #if MSG_ENABLE_CRC8
           /* 1 byte 标识, 1 byte 长度, 1 byte 结束符, 1 byte FIFO 元素大小
@@ -176,7 +172,7 @@ struct msg_instance {
 
   当数据被分成两段时如下处理（再进行校验）
 
-  ```
+  ```c
   #if MSG_ENABLE_CRC8
                   call_len = frame_len - 6;
   #else  /* MSG_ENABLE_CRC8 */
@@ -186,7 +182,7 @@ struct msg_instance {
 
   校验`CRC8`
 
-  ```
+  ```c
   #if MSG_ENABLE_CRC8
           /* 校验 CRC8 */
           crc_value = calc_crc8(call_data, call_len);
@@ -209,11 +205,11 @@ struct msg_instance {
 
 流程如下：
 
-![](.\Picture\msg_send.png)
+![](.\Picture\msg_send.png){.img-scale-50}
 
 #### 扩缩缓存区
 
-```
+```c
 if (msg->send_buf_len <= data_len + 5) {
         /* 不够 */
         uint8_t *new_buf = (uint8_t *)MSG_REALLOC(msg->send_buf, data_len * 2);
@@ -247,13 +243,13 @@ if (msg->send_buf_len <= data_len + 5) {
 
 流程如下：
 
-![](.\Picture\msg-rec.png)
+![](.\Picture\msg-rec.png){.img-scale-50}
 
 #### 消息数据入队
 
 把从串口读到的字节写入环形 `FIFO`，遇到 `MSG_EOF` 完成一帧并在帧前预留的位置写入该帧在 `FIFO` 中的总长度。
 
-```
+```c
 if (fifo->new_frame) {
             /* 空一个字节写长度, 长度写 0 */
             fifo->buf[fifo->tail & fifo->mask] = 0;

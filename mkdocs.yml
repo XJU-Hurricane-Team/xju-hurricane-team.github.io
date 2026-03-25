@@ -140,11 +140,10 @@ nav:
           - C编码风格与规范: Electrical/C语言/Program-Design/C-code-style.md
       - STM32:
           - Stm32: Electrical/Stm32/index.md
-          - Stm32基础: 
-            - Stm32简介: Electrical/Stm32/Stm32基础/Stm32简介.md
-            - 系统架构: Electrical/Stm32/Stm32基础/系统架构.md
-            - 启动过程: Electrical/Stm32/Stm32基础/启动过程.md
           - Stm32开发: 
+            - Stm32简介: Electrical/Stm32/Stm32开发/Stm32简介.md
+            - 系统架构: Electrical/Stm32/Stm32开发/系统架构.md
+            - 启动过程: Electrical/Stm32/Stm32开发/启动过程.md
             - 项目组成: Electrical/Stm32/Stm32开发/项目组成.md
             - 开发环境: Electrical/Stm32/Stm32开发/开发环境.md
             - 调试工具: Electrical/Stm32/Stm32开发/调试工具.md
@@ -153,6 +152,7 @@ nav:
             - IIC: Electrical/Stm32/Stm32外设/IIC.md
             - SPI: Electrical/Stm32/Stm32外设/SPI.md
             - CAN: Electrical/Stm32/Stm32外设/CAN.md
+            - TIM: Electrical/Stm32/Stm32外设/TIM.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
           - SystemView: Electrical/RTOS/SystemView配置指南/SystemView配置指南.md
