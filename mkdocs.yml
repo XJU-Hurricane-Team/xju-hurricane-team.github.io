@@ -242,7 +242,7 @@ nav:
       - 其他:
           - 常用外设引脚顺序: Circuit/其他/常用外设引脚顺序.md
           - F4-ADS遥控器: Circuit/其他/F4-ADS遥控器.md
-          - XJU-2026分电板: Circuit/其他/2026分电板V1.0.md
+          - Daplink使用手册: Circuit/其他/Daplink使用手册.md
           - XJU-ESP32开发板: Circuit/其他/xju-ESP32 1.0.md
           - 无线急停: Circuit/其他/xju_wireless-emergency-stop.md
   - 其它:
