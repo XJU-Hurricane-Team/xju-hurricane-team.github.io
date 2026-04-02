@@ -2,6 +2,8 @@
 
 参考[高速无线DAP调试器Lite - 立创开源硬件平台](https://oshwhub.com/ylj2000/dap_hs_esp_open)设计，修改线序为Jlink线序，主控板Jtag即可兼容Jlink和无线Daplink
 
+![](Picture/Daplink成品效果图.jpg)
+
 ## 固件烧录
 
 硬件焊接完成后，usb插电脑，设备管理器会不停刷新。长按住A后重新再上电，ESP32进入烧录模式，设备管理器的通用串行总线设备显示USB JTAG/serial debug unit，即进入烧录模式。
