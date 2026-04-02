@@ -232,6 +232,10 @@ nav:
       - 教学 :
           - 零基础入门嘉立创: Circuit/教学/零基础入门嘉立创.md
           - LPKF ProtoLaser S4使用教程: Circuit/教学/LPKF打板机使用教程.md
+      - RC主控 :
+          - 2026F4: Circuit/RC主控/2026F4主控.md
+          - 2026G4: Circuit/RC主控/2026G4主控.md
+          - 2025F4: Circuit/RC主控/2025F4主控.md
       - 电驱:
           - FOC学习-硬件版: Circuit/电驱/FOC学习-硬件版.md
       - 电源:
