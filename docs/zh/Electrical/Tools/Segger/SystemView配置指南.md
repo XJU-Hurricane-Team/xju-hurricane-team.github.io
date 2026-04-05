@@ -59,13 +59,13 @@ https://github.com/SEGGERMicro/RTT.git
   
   > Sample文件夹下只用移植自己对应的操作系统文件夹
   
-  ![image-20260310121703984](image-20260310121703984.png)
+  ![image-20260310121703984](./Picture/image-20260310121703984.png)
 
 * RTT文件夹
 
   操作同上。
 
-  ![image-20260310122325217](image-20260310122325217.png)
+  ![image-20260310122325217](./Picture/image-20260310122325217.png)
 
 ### 添加代码
 

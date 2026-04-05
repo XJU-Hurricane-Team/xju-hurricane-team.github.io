@@ -137,7 +137,7 @@ nav:
       - 电控: Electrical/index.md
       - C语言:
           - C语言基础: https://deadline039.github.io/C/
-          - C编码风格与规范: Electrical/C语言/Program-Design/C-code-style.md
+          - C编码风格与规范: Electrical/C语言/C-code-style.md
       - STM32:
           - Stm32: Electrical/Stm32/index.md
           - Stm32开发: 
@@ -155,7 +155,6 @@ nav:
             - TIM: Electrical/Stm32/Stm32外设/TIM.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
-          - SystemView: Electrical/RTOS/SystemView配置指南/SystemView配置指南.md
       - Motors: 
           - 电机简介: Electrical/Motors/index.md
           - 大疆电机: Electrical/Motors/大疆电机.md
@@ -163,11 +162,14 @@ nav:
           - 步进电机: Electrical/Motors/步进电机.md
           - VESC电机: Electrical/Motors/VESC电机.md
           - 宇树电机: Electrical/Motors/宇树电机.md
-      - MicroROS:
-          - stm32运行microros: Electrical/MicroROS/stm32上运行microros/stm32上运行microros.md
-          - 自定义消息+静态库: Electrical/MicroROS/自定义消息+静态库/自定义消息+静态库.md
-          - 头文件功能分类: Electrical/MicroROS/头文件功能分类.md
-          - 执行器管理: Electrical/MicroROS/执行器管理.md
+      - Lib:
+        - MicroROS:
+            - stm32运行microros: Electrical/Lib/MicroROS/stm32上运行microros/stm32上运行microros.md
+            - 自定义消息+静态库: Electrical/Lib/MicroROS/自定义消息+静态库/自定义消息+静态库.md
+            - 头文件功能分类: Electrical/Lib/MicroROS/头文件功能分类.md
+            - 执行器管理: Electrical/Lib/MicroROS/执行器管理.md
+        - TouchGFX:
+            - TouchGFX: Electrical/Lib/TouchGFX/TouchGFX.md
       - 代码解析:
           - can_list: Electrical/代码解析/can_list解析.md
           - msg_protocol: Electrical/代码解析/msg_protocol解析.md
@@ -176,10 +178,12 @@ nav:
           - PID控制详解: Electrical/ControlTheory/PID控制.md
           - 控制论进阶: Electrical/ControlTheory/控制论进阶.md
           - LADRC: Electrical/ControlTheory/LADRC.md
-      - 其他:
-          - 电控基础: Electrical/Other/电控基础.md
-          - 树莓派: Electrical/Other/树莓派.md
-          - MCUViewer使用方法: Electrical/Other/MCUViewer使用方法.md
+      - 开发工具:
+          - Segger:
+            - SystemView: Electrical/Tools/Segger/SystemView配置指南.md
+          - 电控基础: Electrical/Tools/电控基础.md
+          - 树莓派: Electrical/Tools/树莓派.md
+          - MCUViewer使用方法: Electrical/Tools/MCUViewer使用方法.md
   - 视觉:
       - 视觉: Vision/index.md
       - 导航:
