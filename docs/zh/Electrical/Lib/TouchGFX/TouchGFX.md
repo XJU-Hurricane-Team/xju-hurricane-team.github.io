@@ -13,6 +13,7 @@ TouchGFX 是一款适用于 STM32 MCU 的嵌入式 UI 框架，提供了便捷�
 
 ### 硬件概述
 在开发嵌入式 UI 的过程中首先需要根据硬件条件考虑软件设计，通常需要考虑四个方面：
+
 - 屏幕：驱动芯片，屏幕尺寸，传输接口。
 - MCU：MCU资源大小，主频，接口带宽。
 - RAM：用于设置帧缓存区，帧缓存区也可能在 MCU 内部 RAM 中。
@@ -35,16 +36,22 @@ TouchGFX 是一款适用于 STM32 MCU 的嵌入式 UI 框架，提供了便捷�
 初始化过程需要在 CubeMX 当中配置，首先需要初始化传输接口，注意需要开启 DMA 和 DMA 中断。
 ![](Picture/Pasted%20image%2020260406122324.png)
 
+注意 DMA 的`Data Width`要设置为半字宽度。
+![](Pasted%20image%2020260407115857.png)
+
 开启 CRC 和 DMA2D（如果 MCU 有的话）。
 ![](Picture/Pasted%20image%2020260406122614.png)
 
 ![](Picture/Pasted%20image%2020260406122635.png)
 
 添加 TouchGFX 组件，这里使用组件版本为4.26.1。
+
 ![](Picture/Pasted%20image%2020260406111430.png)
+
 这里根据前面硬件选型部分的分析进行选择，需要注意接口是SPI 的情况下`interface`选择`Custom`，`Number of Blocks`是指缓存区的块数，`Block Size`是每块缓存区的大小。战队模板当中的 FreeRTOS 是手动添加的因此这里的`Real-Time Operating System`选项我们选择`Custom`后续需要手动进行代码配置，如果想要 CubeMX 直接生成可以选择`CMSIS-V2`。由于我们使用的 LCD 模块没有引出 [TE 引脚](https://support.touchgfx.com/zh-CN/docs/development/scenarios/touchgfx-on-lowcost-hardware#tearing-effect)所以`Partial Framebuffer VSync`选项不开启。
 
 配置成功后即可生成代码，如果使用的是战队模板需要取消`cleanup`脚本的执行。
+
 ![](Picture/Pasted%20image%2020260406124956.png)
 
 ### 工程配置
