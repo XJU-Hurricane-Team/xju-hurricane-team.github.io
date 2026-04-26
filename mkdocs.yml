@@ -231,6 +231,7 @@ nav:
       - 机械2:
           - 机械1-1: Mechanical/Mechanical1-1.md
           - 机械1-2: Mechanical/Mechanical1-2.md
+      - 雕刻机的使用: Mechanical/雕刻机的使用.md
   - 电路:
       - 关于电路: Circuit/index.md
       - 教学 :
