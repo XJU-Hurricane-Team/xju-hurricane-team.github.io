@@ -245,6 +245,7 @@ nav:
           - FOC学习-硬件版: Circuit/电驱/FOC学习-硬件版.md
       - 电源:
           - MP5048并联大功率稳压电源: Circuit/电源/MP5048并联大功率稳压电源.md
+          - MP4317宽负载双模式供电模块: Circuit/电源/MP4317宽负载双模式供电模块.md
       - 接线:
           - CAN & RS485接线: Circuit/接线/CAN & RS485接线.md
           - 滑环接线: Circuit/接线/滑环.md
