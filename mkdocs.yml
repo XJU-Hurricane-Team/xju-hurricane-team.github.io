@@ -1,5 +1,5 @@
 site_name: XJU-Hurricane-docs
-site_description: æ–°ç–†å¤§å­¦é£“é£æˆ˜é˜Ÿæ–‡æ¡£ç«™
+site_description: ĞÂ½®´óÑ§ì«·çÕ½¶ÓÎÄµµÕ¾
 site_url: https://xju-hurricane-team.github.io
 repo_url: https://github.com/XJU-Hurricane-Team/xju-hurricane-team.github.io
 edit_uri: edit/main/docs/
@@ -8,42 +8,42 @@ theme:
   name: material
   custom_dir: overrides
   font:
-    # false # å›½å†…ç½‘ç»œè®¿é—® Google æºå¯èƒ½ä¼šæœ‰é—®é¢˜
+    # false # ¹úÄÚÍøÂç·ÃÎÊ Google Ô´¿ÉÄÜ»áÓĞÎÊÌâ
     text: "Noto Sans SC - local"
     # code: Roboto Mono
   palette:
-    - media: "(prefers-color-scheme: light)" # æ£€æŸ¥ç”¨æˆ·ç³»ç»Ÿé…ç½®æ˜¯å¦ä¸ºäº®è‰²
-      scheme: default # äº®è‰²æ¨¡å¼
-      primary: white # åŸºæœ¬é¢œè‰²
-      accent: blue # æŒ‰é’®ç­‰äº’åŠ¨å—çš„é¢œè‰²
+    - media: "(prefers-color-scheme: light)" # ¼ì²éÓÃ»§ÏµÍ³ÅäÖÃÊÇ·ñÎªÁÁÉ«
+      scheme: default # ÁÁÉ«Ä£Ê½
+      primary: white # »ù±¾ÑÕÉ«
+      accent: blue # °´Å¥µÈ»¥¶¯¿éµÄÑÕÉ«
       toggle:
         icon: material/eye
-        name: åˆ‡æ¢æš—è‰²æ¨¡å¼
-    - media: "(prefers-color-scheme: dark)" # æ£€æŸ¥ç”¨æˆ·ç³»ç»Ÿé…ç½®æ˜¯å¦ä¸ºæš—è‰²
-      scheme: slate # æš—è‰²æ¨¡å¼
-      primary: black # åŸºæœ¬é¢œè‰²
-      accent: blue # æŒ‰é’®ç­‰äº’åŠ¨å—çš„é¢œè‰²
+        name: ÇĞ»»°µÉ«Ä£Ê½
+    - media: "(prefers-color-scheme: dark)" # ¼ì²éÓÃ»§ÏµÍ³ÅäÖÃÊÇ·ñÎª°µÉ«
+      scheme: slate # °µÉ«Ä£Ê½
+      primary: black # »ù±¾ÑÕÉ«
+      accent: blue # °´Å¥µÈ»¥¶¯¿éµÄÑÕÉ«
       toggle:
         icon: material/eye-outline
-        name: åˆ‡æ¢äº®è‰²æ¨¡å¼
+        name: ÇĞ»»ÁÁÉ«Ä£Ê½
   language: zh
   logo: img/logo-banner.png
   favicon: img/logo.png
   features:
-    - content.code.copy # ä»£ç å—å¤åˆ¶æŒ‰é’®
-    - content.action.edit # æ–‡ç« ç¼–è¾‘æŒ‰é’®
-    #- navigation.instant # Instant loadingï¼Œåƒä¸ªå•é¡µåº”ç”¨
+    - content.code.copy # ´úÂë¿é¸´ÖÆ°´Å¥
+    - content.action.edit # ÎÄÕÂ±à¼­°´Å¥
+    #- navigation.instant # Instant loading£¬Ïñ¸öµ¥Ò³Ó¦ÓÃ
     - navigation.tracking # Anchor tracking
-    - navigation.tabs # å¯¼èˆªæ 
-    - navigation.footer # ä¸Šä¸€ç¯‡ / ä¸‹ä¸€ç¯‡å¯¼èˆªæŒ‰é’®
-    #- navigation.tabs.sticky # å¯¼èˆªæ ä¸éšé¡µé¢æ»šåŠ¨éšè—
-    # - navigation.sections # ä¾§è¾¹æ åˆ†ç»„æ˜¾ç¤º
-    #- navigation.expand # å¯¼èˆªæ è‡ªåŠ¨å±•å¼€
-    - navigation.indexes # ç»„æ ‡é¢˜æœ‰ä¸“å±é¡µé¢
-    - toc.follow # ç›®å½•è‡ªåŠ¨è·Ÿéš
-    - navigation.top # è¿”å›é¡¶éƒ¨æŒ‰é’®
-    - search.suggest # æœç´¢æ¨è
-    #- navigation.prune # å¯¼èˆªä¿®å‰ªï¼Œä»…æ¸²æŸ“å¯è§é“¾æ¥ï¼Œä¼˜åŒ–æ–‡æ¡£æ•°é‡è¶…è¿‡100çš„ç«™ç‚¹ï¼ˆå®éªŒï¼‰ï¼Œä¼šå¯¼è‡´é¡µé¢é—´è·³è½¬é€Ÿåº¦å˜æ…¢
+    - navigation.tabs # µ¼º½À¸
+    - navigation.footer # ÉÏÒ»Æª / ÏÂÒ»Æªµ¼º½°´Å¥
+    #- navigation.tabs.sticky # µ¼º½À¸²»ËæÒ³Ãæ¹ö¶¯Òş²Ø
+    # - navigation.sections # ²à±ßÀ¸·Ö×éÏÔÊ¾
+    #- navigation.expand # µ¼º½À¸×Ô¶¯Õ¹¿ª
+    - navigation.indexes # ×é±êÌâÓĞ×¨ÊôÒ³Ãæ
+    - toc.follow # Ä¿Â¼×Ô¶¯¸úËæ
+    - navigation.top # ·µ»Ø¶¥²¿°´Å¥
+    - search.suggest # ËÑË÷ÍÆ¼ö
+    #- navigation.prune # µ¼º½ĞŞ¼ô£¬½öäÖÈ¾¿É¼ûÁ´½Ó£¬ÓÅ»¯ÎÄµµÊıÁ¿³¬¹ı100µÄÕ¾µã£¨ÊµÑé£©£¬»áµ¼ÖÂÒ³Ãæ¼äÌø×ªËÙ¶È±äÂı
     - search.highlight
   icon:
     repo: material/github
@@ -56,7 +56,7 @@ plugins:
       languages:
         - locale: zh
           default: true
-          name: ç®€ä½“ä¸­æ–‡
+          name: ¼òÌåÖĞÎÄ
           build: true
   - git-revision-date-localized:
       enable_creation_date: true
@@ -84,7 +84,7 @@ extra:
     - name: Bilibili
       link: https://space.bilibili.com/522132031/
       icon: fontawesome/brands/bilibili
-    - name: å¾®ä¿¡å…¬ä¼—å·
+    - name: Î¢ĞÅ¹«ÖÚºÅ
       link: https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MzkzNDYwNDAzMQ==&mid=2247483740&idx=1&sn=7d8b41e41cfe7f3100435bfbffd562e0&send_time=
       icon: fontawesome/brands/weixin
 
@@ -98,12 +98,12 @@ markdown_extensions:
   - pymdownx.snippets
   - attr_list
   - md_in_html
-  - admonition #MkDocs è­¦å‘Šæ¡†
-  - footnotes #è„šæ³¨
-  - meta #è‡ªå®šä¹‰æ–‡ç« å…ƒæ•°æ®
-  - pymdownx.caret #ä¸‹åˆ’çº¿
-  - pymdownx.mark #æ–‡æœ¬é«˜äº®
-  - pymdownx.tilde #åˆ é™¤çº¿
+  - admonition #MkDocs ¾¯¸æ¿ò
+  - footnotes #½Å×¢
+  - meta #×Ô¶¨ÒåÎÄÕÂÔªÊı¾İ
+  - pymdownx.caret #ÏÂ»®Ïß
+  - pymdownx.mark #ÎÄ±¾¸ßÁÁ
+  - pymdownx.tilde #É¾³ıÏß
   - mdx_truly_sane_lists
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -131,139 +131,140 @@ nav:
   - Home: index.md
   - About:
       - WELCOME COME TO HURRICANE!: About/index.md
-      - å¦‚ä½•å‚ä¸æˆ˜é˜Ÿæ–‡æ¡£ç¼–è¾‘: About/å¦‚ä½•å‚ä¸.md
-      - æˆ˜é˜Ÿæ–‡æ¡£è§„èŒƒ: About/æ–‡æ¡£è§„èŒƒ.md
-  - ç”µæ§:
-      - ç”µæ§: Electrical/index.md
-      - Cè¯­è¨€:
-          - Cè¯­è¨€åŸºç¡€: https://deadline039.github.io/C/
-          - Cç¼–ç é£æ ¼ä¸è§„èŒƒ: Electrical/Cè¯­è¨€/C-code-style.md
+      - ÈçºÎ²ÎÓëÕ½¶ÓÎÄµµ±à¼­: About/ÈçºÎ²ÎÓë.md
+      - Õ½¶ÓÎÄµµ¹æ·¶: About/ÎÄµµ¹æ·¶.md
+  - µç¿Ø:
+      - µç¿Ø: Electrical/index.md
+      - CÓïÑÔ:
+          - CÓïÑÔ»ù´¡: https://deadline039.github.io/C/
+          - C±àÂë·ç¸ñÓë¹æ·¶: Electrical/CÓïÑÔ/C-code-style.md
       - STM32:
           - Stm32: Electrical/Stm32/index.md
-          - Stm32å¼€å‘: 
-            - Stm32ç®€ä»‹: Electrical/Stm32/Stm32å¼€å‘/Stm32ç®€ä»‹.md
-            - ç³»ç»Ÿæ¶æ„: Electrical/Stm32/Stm32å¼€å‘/ç³»ç»Ÿæ¶æ„.md
-            - å¯åŠ¨è¿‡ç¨‹: Electrical/Stm32/Stm32å¼€å‘/å¯åŠ¨è¿‡ç¨‹.md
-            - é¡¹ç›®ç»„æˆ: Electrical/Stm32/Stm32å¼€å‘/é¡¹ç›®ç»„æˆ.md
-            - å¼€å‘ç¯å¢ƒ: Electrical/Stm32/Stm32å¼€å‘/å¼€å‘ç¯å¢ƒ.md
-            - è°ƒè¯•å·¥å…·: Electrical/Stm32/Stm32å¼€å‘/è°ƒè¯•å·¥å…·.md
-          - Stm32å¤–è®¾:
-            - USART: Electrical/Stm32/Stm32å¤–è®¾/USART.md
-            - IIC: Electrical/Stm32/Stm32å¤–è®¾/IIC.md
-            - SPI: Electrical/Stm32/Stm32å¤–è®¾/SPI.md
-            - CAN: Electrical/Stm32/Stm32å¤–è®¾/CAN.md
-            - TIM: Electrical/Stm32/Stm32å¤–è®¾/TIM.md
+          - Stm32¿ª·¢: 
+            - Stm32¼ò½é: Electrical/Stm32/Stm32¿ª·¢/Stm32¼ò½é.md
+            - ÏµÍ³¼Ü¹¹: Electrical/Stm32/Stm32¿ª·¢/ÏµÍ³¼Ü¹¹.md
+            - Æô¶¯¹ı³Ì: Electrical/Stm32/Stm32¿ª·¢/Æô¶¯¹ı³Ì.md
+            - ÏîÄ¿×é³É: Electrical/Stm32/Stm32¿ª·¢/ÏîÄ¿×é³É.md
+            - ¿ª·¢»·¾³: Electrical/Stm32/Stm32¿ª·¢/¿ª·¢»·¾³.md
+            - µ÷ÊÔ¹¤¾ß: Electrical/Stm32/Stm32¿ª·¢/µ÷ÊÔ¹¤¾ß.md
+          - Stm32ÍâÉè:
+            - USART: Electrical/Stm32/Stm32ÍâÉè/USART.md
+            - IIC: Electrical/Stm32/Stm32ÍâÉè/IIC.md
+            - SPI: Electrical/Stm32/Stm32ÍâÉè/SPI.md
+            - CAN: Electrical/Stm32/Stm32ÍâÉè/CAN.md
+            - TIM: Electrical/Stm32/Stm32ÍâÉè/TIM.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
       - Motors: 
-          - ç”µæœºç®€ä»‹: Electrical/Motors/index.md
-          - å¤§ç–†ç”µæœº: Electrical/Motors/å¤§ç–†ç”µæœº.md
-          - è¾¾å¦™ç”µæœº: Electrical/Motors/è¾¾å¦™ç”µæœº.md
-          - æ­¥è¿›ç”µæœº: Electrical/Motors/æ­¥è¿›ç”µæœº.md
-          - VESCç”µæœº: Electrical/Motors/VESCç”µæœº.md
-          - å®‡æ ‘ç”µæœº: Electrical/Motors/å®‡æ ‘ç”µæœº.md
+          - µç»ú¼ò½é: Electrical/Motors/index.md
+          - ´ó½®µç»ú: Electrical/Motors/´ó½®µç»ú.md
+          - ´ïÃîµç»ú: Electrical/Motors/´ïÃîµç»ú.md
+          - ²½½øµç»ú: Electrical/Motors/²½½øµç»ú.md
+          - VESCµç»ú: Electrical/Motors/VESCµç»ú.md
+          - ÓîÊ÷µç»ú: Electrical/Motors/ÓîÊ÷µç»ú.md
       - Lib:
         - MicroROS:
-            - stm32è¿è¡Œmicroros: Electrical/Lib/MicroROS/stm32ä¸Šè¿è¡Œmicroros/stm32ä¸Šè¿è¡Œmicroros.md
-            - è‡ªå®šä¹‰æ¶ˆæ¯+é™æ€åº“: Electrical/Lib/MicroROS/è‡ªå®šä¹‰æ¶ˆæ¯+é™æ€åº“/è‡ªå®šä¹‰æ¶ˆæ¯+é™æ€åº“.md
-            - å¤´æ–‡ä»¶åŠŸèƒ½åˆ†ç±»: Electrical/Lib/MicroROS/å¤´æ–‡ä»¶åŠŸèƒ½åˆ†ç±».md
-            - æ‰§è¡Œå™¨ç®¡ç†: Electrical/Lib/MicroROS/æ‰§è¡Œå™¨ç®¡ç†.md
+            - stm32ÔËĞĞmicroros: Electrical/Lib/MicroROS/stm32ÉÏÔËĞĞmicroros/stm32ÉÏÔËĞĞmicroros.md
+            - ×Ô¶¨ÒåÏûÏ¢+¾²Ì¬¿â: Electrical/Lib/MicroROS/×Ô¶¨ÒåÏûÏ¢+¾²Ì¬¿â/×Ô¶¨ÒåÏûÏ¢+¾²Ì¬¿â.md
+            - Í·ÎÄ¼ş¹¦ÄÜ·ÖÀà: Electrical/Lib/MicroROS/Í·ÎÄ¼ş¹¦ÄÜ·ÖÀà.md
+            - Ö´ĞĞÆ÷¹ÜÀí: Electrical/Lib/MicroROS/Ö´ĞĞÆ÷¹ÜÀí.md
         - TouchGFX:
             - TouchGFX: Electrical/Lib/TouchGFX/TouchGFX.md
-      - ä»£ç è§£æ:
-          - can_list: Electrical/ä»£ç è§£æ/can_listè§£æ.md
-          - msg_protocol: Electrical/ä»£ç è§£æ/msg_protocolè§£æ.md
-      - æ§åˆ¶ç†è®º:
-          - æ§åˆ¶è®ºåŸºç¡€: Electrical/ControlTheory/æ§åˆ¶è®ºåŸºç¡€.md
-          - PIDæ§åˆ¶è¯¦è§£: Electrical/ControlTheory/PIDæ§åˆ¶.md
-          - æ§åˆ¶è®ºè¿›é˜¶: Electrical/ControlTheory/æ§åˆ¶è®ºè¿›é˜¶.md
+      - ´úÂë½âÎö:
+          - can_list: Electrical/´úÂë½âÎö/can_list½âÎö.md
+          - msg_protocol: Electrical/´úÂë½âÎö/msg_protocol½âÎö.md
+      - ¿ØÖÆÀíÂÛ:
+          - ¿ØÖÆÂÛ»ù´¡: Electrical/ControlTheory/¿ØÖÆÂÛ»ù´¡.md
+          - PID¿ØÖÆÏê½â: Electrical/ControlTheory/PID¿ØÖÆ.md
+          - ¿ØÖÆÂÛ½ø½×: Electrical/ControlTheory/¿ØÖÆÂÛ½ø½×.md
           - LADRC: Electrical/ControlTheory/LADRC.md
-      - å¼€å‘å·¥å…·:
+      - ¿ª·¢¹¤¾ß:
           - Segger:
-            - SystemView: Electrical/Tools/Segger/SystemViewé…ç½®æŒ‡å—.md
-          - ç”µæ§åŸºç¡€: Electrical/Tools/ç”µæ§åŸºç¡€.md
-          - æ ‘è“æ´¾: Electrical/Tools/æ ‘è“æ´¾.md
-          - MCUViewerä½¿ç”¨æ–¹æ³•: Electrical/Tools/MCUViewerä½¿ç”¨æ–¹æ³•.md
-  - è§†è§‰:
-      - è§†è§‰: Vision/index.md
-      - å¯¼èˆª:
-        - å¯¼èˆªä¸»çº¿:
-          - ROS2ä¸»æµç¨‹: Vision/navigation/ROS2/å¯¼èˆª_ä¸»çº¿/ROS2ä¸»æµç¨‹.md
-          - Navigation2å¯¼èˆªæ¡†æ¶: Vision/navigation/ROS2/å¯¼èˆª_ä¸»çº¿/Navigation2å¯¼èˆªæ¡†æ¶.md
-          - åŒ—æç†ŠNav2æ¡†æ¶: Vision/navigation/ROS2/å¯¼èˆª_ä¸»çº¿/åŒ—æç†ŠNav2æ¡†æ¶.md
-        - å¯¼èˆªæ”¯çº¿:
-          - åŸºç¡€ç¼–ç¨‹: Vision/navigation/ROS2/å¯¼èˆª_æ”¯çº¿/ROS2åŸºç¡€ç¼–ç¨‹.md
-          - ç±»çš„å°è£…å’Œè°ƒç”¨: Vision/navigation/ROS2/å¯¼èˆª_æ”¯çº¿/ç±»çš„å°è£…å’Œè°ƒç”¨.md
-          - Launchæ–‡ä»¶çš„ç¼–å†™: Vision/navigation/ROS2/å¯¼èˆª_æ”¯çº¿/launchæ–‡ä»¶çš„ç¼–å†™.md
-          - å¸¸ç”¨å¼€å‘å·¥å…·: Vision/navigation/ROS2/å¯¼èˆª_æ”¯çº¿/ROS2å¸¸ç”¨å¼€å‘å·¥å…·.md
-        - é›·è¾¾å®šä½:
-          - Mid-360æ¿€å…‰é›·è¾¾é…ç½®æ•™ç¨‹: Vision/navigation/lidar/Mid-360æ¿€å…‰é›·è¾¾é…ç½®æ•™ç¨‹.md
-          - é›·è¾¾å®šä½ä¿¡æ¯: Vision/navigation/lidar/é›·è¾¾å®šä½ä¿¡æ¯.md
-      - æ·±åº¦å­¦ä¹ :
-        - çŸ¥è¯†ç‚¹: Vision/æ·±åº¦å­¦ä¹ /çŸ¥è¯†ç‚¹.md
-        - yoloå®è·µ: Vision/æ·±åº¦å­¦ä¹ /yoloå®è·µ.md
-      - å¼ºåŒ–å­¦ä¹ :
-          - å¼ºåŒ–å­¦ä¹ : Vision/å¼ºåŒ–å­¦ä¹ /å¼ºåŒ–å­¦ä¹ .md
-          - å¼ºåŒ–å­¦ä¹ åŸºç¡€: Vision/å¼ºåŒ–å­¦ä¹ /0.1å¼ºåŒ–å­¦ä¹ åŸºç¡€.md
-          - é©¬å°”å¯å¤«å†³ç­–è¿‡ç¨‹: Vision/å¼ºåŒ–å­¦ä¹ /0.2é©¬å°”å¯å¤«å†³ç­–è¿‡ç¨‹.md
-          - åŠ¨æ€è§„åˆ’: Vision/å¼ºåŒ–å­¦ä¹ /0.3åŠ¨æ€è§„åˆ’.md
-          - æ— æ¨¡å‹(è¯„ä¼°): Vision/å¼ºåŒ–å­¦ä¹ /0.4æ— æ¨¡å‹(è¯„ä¼°).md
-          - æ— æ¨¡å‹æ§åˆ¶(ä¼˜åŒ–): Vision/å¼ºåŒ–å­¦ä¹ /0.5æ— æ¨¡å‹æ§åˆ¶(ä¼˜åŒ–).md
-          - ä»·å€¼å‡½æ•°è¿‘ä¼¼: Vision/å¼ºåŒ–å­¦ä¹ /0.6ä»·å€¼å‡½æ•°è¿‘ä¼¼.md
-          - åŸºäºç­–ç•¥çš„å¼ºåŒ–å­¦ä¹ : Vision/å¼ºåŒ–å­¦ä¹ /0.7åŸºäºç­–ç•¥çš„å¼ºåŒ–å­¦ä¹ .md
-          - è´å°”æ›¼æ–¹ç¨‹: Vision/å¼ºåŒ–å­¦ä¹ /1.è´å°”æ›¼æ–¹ç¨‹.md
-          - è’™ç‰¹å¡æ´›æœŸæœ›: Vision/å¼ºåŒ–å­¦ä¹ /2.è’™ç‰¹å¡æ´›æœŸæœ›.md
-          - éšæœºè¿‘ä¼¼(SA): Vision/å¼ºåŒ–å­¦ä¹ /3.éšæœºè¿‘ä¼¼(SA).md
-          - æ—¶åºå·®åˆ†: Vision/å¼ºåŒ–å­¦ä¹ /4.æ—¶åºå·®åˆ†.md
-          - å€¼å‡½æ•°è¿‘ä¼¼: Vision/å¼ºåŒ–å­¦ä¹ /5.å€¼å‡½æ•°è¿‘ä¼¼.md
+            - SystemView: Electrical/Tools/Segger/SystemViewÅäÖÃÖ¸ÄÏ.md
+          - µç¿Ø»ù´¡: Electrical/Tools/µç¿Ø»ù´¡.md
+          - Ê÷İ®ÅÉ: Electrical/Tools/Ê÷İ®ÅÉ.md
+          - MCUViewerÊ¹ÓÃ·½·¨: Electrical/Tools/MCUViewerÊ¹ÓÃ·½·¨.md
+  - ÊÓ¾õ:
+      - ÊÓ¾õ: Vision/index.md
+      - µ¼º½:
+        - µ¼º½Ö÷Ïß:
+          - ROS2Ö÷Á÷³Ì: Vision/navigation/ROS2/µ¼º½_Ö÷Ïß/ROS2Ö÷Á÷³Ì.md
+          - Navigation2µ¼º½¿ò¼Ü: Vision/navigation/ROS2/µ¼º½_Ö÷Ïß/Navigation2µ¼º½¿ò¼Ü.md
+          - ±±¼«ĞÜNav2¿ò¼Ü: Vision/navigation/ROS2/µ¼º½_Ö÷Ïß/±±¼«ĞÜNav2¿ò¼Ü.md
+        - µ¼º½Ö§Ïß:
+          - »ù´¡±à³Ì: Vision/navigation/ROS2/µ¼º½_Ö§Ïß/ROS2»ù´¡±à³Ì.md
+          - ÀàµÄ·â×°ºÍµ÷ÓÃ: Vision/navigation/ROS2/µ¼º½_Ö§Ïß/ÀàµÄ·â×°ºÍµ÷ÓÃ.md
+          - LaunchÎÄ¼şµÄ±àĞ´: Vision/navigation/ROS2/µ¼º½_Ö§Ïß/launchÎÄ¼şµÄ±àĞ´.md
+          - ³£ÓÃ¿ª·¢¹¤¾ß: Vision/navigation/ROS2/µ¼º½_Ö§Ïß/ROS2³£ÓÃ¿ª·¢¹¤¾ß.md
+        - À×´ï¶¨Î»:
+          - Mid-360¼¤¹âÀ×´ïÅäÖÃ½Ì³Ì: Vision/navigation/lidar/Mid-360¼¤¹âÀ×´ïÅäÖÃ½Ì³Ì.md
+          - À×´ï¶¨Î»ĞÅÏ¢: Vision/navigation/lidar/À×´ï¶¨Î»ĞÅÏ¢.md
+      - Éî¶ÈÑ§Ï°:
+        - ÖªÊ¶µã: Vision/Éî¶ÈÑ§Ï°/ÖªÊ¶µã.md
+        - yoloÊµ¼ù: Vision/Éî¶ÈÑ§Ï°/yoloÊµ¼ù.md
+      - Ç¿»¯Ñ§Ï°:
+          - Ç¿»¯Ñ§Ï°: Vision/Ç¿»¯Ñ§Ï°/Ç¿»¯Ñ§Ï°.md
+          - Ç¿»¯Ñ§Ï°»ù´¡: Vision/Ç¿»¯Ñ§Ï°/0.1Ç¿»¯Ñ§Ï°»ù´¡.md
+          - Âí¶û¿É·ò¾ö²ß¹ı³Ì: Vision/Ç¿»¯Ñ§Ï°/0.2Âí¶û¿É·ò¾ö²ß¹ı³Ì.md
+          - ¶¯Ì¬¹æ»®: Vision/Ç¿»¯Ñ§Ï°/0.3¶¯Ì¬¹æ»®.md
+          - ÎŞÄ£ĞÍ(ÆÀ¹À): Vision/Ç¿»¯Ñ§Ï°/0.4ÎŞÄ£ĞÍ(ÆÀ¹À).md
+          - ÎŞÄ£ĞÍ¿ØÖÆ(ÓÅ»¯): Vision/Ç¿»¯Ñ§Ï°/0.5ÎŞÄ£ĞÍ¿ØÖÆ(ÓÅ»¯).md
+          - ¼ÛÖµº¯Êı½üËÆ: Vision/Ç¿»¯Ñ§Ï°/0.6¼ÛÖµº¯Êı½üËÆ.md
+          - »ùÓÚ²ßÂÔµÄÇ¿»¯Ñ§Ï°: Vision/Ç¿»¯Ñ§Ï°/0.7»ùÓÚ²ßÂÔµÄÇ¿»¯Ñ§Ï°.md
+          - ±´¶ûÂü·½³Ì: Vision/Ç¿»¯Ñ§Ï°/1.±´¶ûÂü·½³Ì.md
+          - ÃÉÌØ¿¨ÂåÆÚÍû: Vision/Ç¿»¯Ñ§Ï°/2.ÃÉÌØ¿¨ÂåÆÚÍû.md
+          - Ëæ»ú½üËÆ(SA): Vision/Ç¿»¯Ñ§Ï°/3.Ëæ»ú½üËÆ(SA).md
+          - Ê±Ğò²î·Ö: Vision/Ç¿»¯Ñ§Ï°/4.Ê±Ğò²î·Ö.md
+          - Öµº¯Êı½üËÆ: Vision/Ç¿»¯Ñ§Ï°/5.Öµº¯Êı½üËÆ.md
       - Tools:
-          - X11Forwarding: Vision/Tools/x11è½¬å‘è¿œç¨‹æœåŠ¡æ¡Œé¢.md
-          - å¸¸ç”¨å·¥å…·: Vision/Tools/å¸¸ç”¨å·¥å…·.md
-          - ROSå·¥å…·: Vision/Tools/ROSå·¥å…·.md
-          - åŒç³»ç»Ÿå®‰è£…: Vision/Tools/åŒç³»ç»Ÿå®‰è£….md
-      - è§†è§‰å¤ç°:
-          - 2025C: Vision/ç”µèµ›/2025C.md
-  - æœºæ¢°:
-      - å…³äºæœºæ¢°: Mechanical/index.md
-      - æœºæ¢°1:
-          - æœºæ¢°1-1: Mechanical/Mechanical1-1.md
-          - æœºæ¢°1-2: Mechanical/Mechanical1-2.md
-      - æœºæ¢°2:
-          - æœºæ¢°1-1: Mechanical/Mechanical1-1.md
-          - æœºæ¢°1-2: Mechanical/Mechanical1-2.md
-      - é›•åˆ»æœºçš„ä½¿ç”¨: Mechanical/é›•åˆ»æœºçš„ä½¿ç”¨.md
-  - ç”µè·¯:
-      - å…³äºç”µè·¯: Circuit/index.md
-      - æ•™å­¦ :
-          - é›¶åŸºç¡€å…¥é—¨å˜‰ç«‹åˆ›: Circuit/æ•™å­¦/é›¶åŸºç¡€å…¥é—¨å˜‰ç«‹åˆ›.md
-          - LPKF ProtoLaser S4ä½¿ç”¨æ•™ç¨‹: Circuit/æ•™å­¦/LPKFæ‰“æ¿æœºä½¿ç”¨æ•™ç¨‹.md
-      - RCä¸»æ§ :
-          - 2026F4: Circuit/RCä¸»æ§/2026F4ä¸»æ§.md
-          - 2026G4: Circuit/RCä¸»æ§/2026G4ä¸»æ§.md
-          - 2025F4: Circuit/RCä¸»æ§/2025F4ä¸»æ§.md
-      - ç”µé©±:
-          - FOCå­¦ä¹ -ç¡¬ä»¶ç‰ˆ: Circuit/ç”µé©±/FOCå­¦ä¹ -ç¡¬ä»¶ç‰ˆ.md
-      - ç”µæº:
-          - MP5048å¹¶è”å¤§åŠŸç‡ç¨³å‹ç”µæº: Circuit/ç”µæº/MP5048å¹¶è”å¤§åŠŸç‡ç¨³å‹ç”µæº.md
-          - MP4317å®½è´Ÿè½½åŒæ¨¡å¼ä¾›ç”µæ¨¡å—: Circuit/ç”µæº/MP4317å®½è´Ÿè½½åŒæ¨¡å¼ä¾›ç”µæ¨¡å—.md
-      - æ¥çº¿:
-          - CAN & RS485æ¥çº¿: Circuit/æ¥çº¿/CAN & RS485æ¥çº¿.md
-          - æ»‘ç¯æ¥çº¿: Circuit/æ¥çº¿/æ»‘ç¯.md
-      - å…¶ä»–:
-          - å¸¸ç”¨å¤–è®¾å¼•è„šé¡ºåº: Circuit/å…¶ä»–/å¸¸ç”¨å¤–è®¾å¼•è„šé¡ºåº.md
-          - 2026é¥æ§å™¨: Circuit/å…¶ä»–/2026é¥æ§å™¨.md
-          - Daplinkä½¿ç”¨æ‰‹å†Œ: Circuit/å…¶ä»–/Daplinkä½¿ç”¨æ‰‹å†Œ.md
-          - å•è·¯æ°”æ³µæ§åˆ¶æ¿: Circuit/å…¶ä»–/å•è·¯æ°”æ³µæ§åˆ¶æ¿.md
-          - XJU-ESP32å¼€å‘æ¿: Circuit/å…¶ä»–/xju-ESP32 1.0.md
-          - æ— çº¿æ€¥åœ: Circuit/å…¶ä»–/xju_wireless-emergency-stop.md
-  - å…¶å®ƒ:
-      - å…³äºå…¶å®ƒ: Other/index.md
-      - ç”µæ± å……æ”¾ç”µ: Other/ç”µæ± å†²æ”¾ç”µ.md
-      - æˆ˜é˜Ÿå…±äº«æ–‡ä»¶è¿æ¥: Other/æˆ˜é˜Ÿå…±äº«æ–‡æ¡£è¿æ¥æ•™ç¨‹.md
-      - æ‰“å°æœºä½¿ç”¨æ•™ç¨‹: Other/æ‰“å°æœºä½¿ç”¨æ•™ç¨‹.md
-      - Jlinkå›ºä»¶çƒ§å½•æ•™ç¨‹: Other/Jlinkå›ºä»¶çƒ§å½•æ•™ç¨‹.md
-      - æˆ˜é˜Ÿè´¢åŠ¡: Other/å…³äºæˆ˜é˜Ÿçš„è´¢åŠ¡.md
-  - å‹é“¾:
-      - å‹é“¾: å‹é“¾/index.md
+          - X11Forwarding: Vision/Tools/x11×ª·¢Ô¶³Ì·şÎñ×ÀÃæ.md
+          - ³£ÓÃ¹¤¾ß: Vision/Tools/³£ÓÃ¹¤¾ß.md
+          - ROS¹¤¾ß: Vision/Tools/ROS¹¤¾ß.md
+          - Ë«ÏµÍ³°²×°: Vision/Tools/Ë«ÏµÍ³°²×°.md
+      - ÊÓ¾õ¸´ÏÖ:
+          - 2025C: Vision/µçÈü/2025C.md
+  - »úĞµ:
+      - ¹ØÓÚ»úĞµ: Mechanical/index.md
+      - »úĞµ1:
+          - »úĞµ1-1: Mechanical/Mechanical1-1.md
+          - »úĞµ1-2: Mechanical/Mechanical1-2.md
+      - »úĞµ2:
+          - »úĞµ1-1: Mechanical/Mechanical1-1.md
+          - »úĞµ1-2: Mechanical/Mechanical1-2.md
+      - µñ¿Ì»úµÄÊ¹ÓÃ: Mechanical/µñ¿Ì»úµÄÊ¹ÓÃ.md
+  - µçÂ·:
+      - ¹ØÓÚµçÂ·: Circuit/index.md
+      - ½ÌÑ§ :
+          - Áã»ù´¡ÈëÃÅ¼ÎÁ¢´´: Circuit/½ÌÑ§/Áã»ù´¡ÈëÃÅ¼ÎÁ¢´´.md
+          - LPKF ProtoLaser S4Ê¹ÓÃ½Ì³Ì: Circuit/½ÌÑ§/LPKF´ò°å»úÊ¹ÓÃ½Ì³Ì.md
+      - RCÖ÷¿Ø :
+          - 2026F4: Circuit/RCÖ÷¿Ø/2026F4Ö÷¿Ø.md
+          - 2026G4: Circuit/RCÖ÷¿Ø/2026G4Ö÷¿Ø.md
+          - 2025F4: Circuit/RCÖ÷¿Ø/2025F4Ö÷¿Ø.md
+      - µçÇı:
+          - FOCÑ§Ï°-Ó²¼ş°æ: Circuit/µçÇı/FOCÑ§Ï°-Ó²¼ş°æ.md
+      - µçÔ´:
+          - MP5048²¢Áª´ó¹¦ÂÊÎÈÑ¹µçÔ´: Circuit/µçÔ´/MP5048²¢Áª´ó¹¦ÂÊÎÈÑ¹µçÔ´.md
+          - MP4317¿í¸ºÔØË«Ä£Ê½¹©µçÄ£¿é: Circuit/µçÔ´/MP4317¿í¸ºÔØË«Ä£Ê½¹©µçÄ£¿é.md
+      - ½ÓÏß:
+          - CAN & RS485½ÓÏß: Circuit/½ÓÏß/CAN & RS485½ÓÏß.md
+          - »¬»·½ÓÏß: Circuit/½ÓÏß/»¬»·.md
+      - ÆäËû:
+          - ³£ÓÃÍâÉèÒı½ÅË³Ğò: Circuit/ÆäËû/³£ÓÃÍâÉèÒı½ÅË³Ğò.md
+          - 2026Ò£¿ØÆ÷: Circuit/ÆäËû/2026Ò£¿ØÆ÷.md
+          - DaplinkÊ¹ÓÃÊÖ²á: Circuit/ÆäËû/DaplinkÊ¹ÓÃÊÖ²á.md
+          - µ¥Â·Æø±Ã¿ØÖÆ°å: Circuit/ÆäËû/µ¥Â·Æø±Ã¿ØÖÆ°å.md
+          - XJU-ESP32¿ª·¢°å: Circuit/ÆäËû/xju-ESP32 1.0.md
+          - ÎŞÏß¼±Í£: Circuit/ÆäËû/xju_wireless-emergency-stop.md
+  - ÆäËü:
+      - ¹ØÓÚÆäËü: Other/index.md
+      - µç³Ø³ä·Åµç: Other/µç³Ø³å·Åµç.md
+      - µç³Ø¹ı·Å¼±¾ÈÖ¸ÄÏ: Other/µç³Ø¹ı·Å¼±¾ÈÖ¸ÄÏ.md
+      - Õ½¶Ó¹²ÏíÎÄ¼şÁ¬½Ó: Other/Õ½¶Ó¹²ÏíÎÄµµÁ¬½Ó½Ì³Ì.md
+      - ´òÓ¡»úÊ¹ÓÃ½Ì³Ì: Other/´òÓ¡»úÊ¹ÓÃ½Ì³Ì.md
+      - Jlink¹Ì¼şÉÕÂ¼½Ì³Ì: Other/Jlink¹Ì¼şÉÕÂ¼½Ì³Ì.md
+      - Õ½¶Ó²ÆÎñ: Other/¹ØÓÚÕ½¶ÓµÄ²ÆÎñ.md
+  - ÓÑÁ´:
+      - ÓÑÁ´: ÓÑÁ´/index.md
       - Deadline039's blog: https://deadline039.github.io/
       - PickingChip's blog: https://pickingchip.github.io/
