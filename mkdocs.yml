@@ -259,6 +259,7 @@ nav:
   - 其它:
       - 关于其它: Other/index.md
       - 电池充放电: Other/电池冲放电.md
+      - 电池过放急救指南: Other/电池过放急救指南.md
       - 战队共享文件连接: Other/战队共享文档连接教程.md
       - 打印机使用教程: Other/打印机使用教程.md
       - Jlink固件烧录教程: Other/Jlink固件烧录教程.md
