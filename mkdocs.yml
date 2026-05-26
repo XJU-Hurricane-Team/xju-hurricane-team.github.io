@@ -140,7 +140,7 @@ nav:
           - C编码风格与规范: Electrical/C语言/C-code-style.md
       - STM32:
           - Stm32: Electrical/Stm32/index.md
-          - Stm32开发: 
+          - Stm32开发:
             - Stm32简介: Electrical/Stm32/Stm32开发/Stm32简介.md
             - 系统架构: Electrical/Stm32/Stm32开发/系统架构.md
             - 启动过程: Electrical/Stm32/Stm32开发/启动过程.md
@@ -155,7 +155,7 @@ nav:
             - TIM: Electrical/Stm32/Stm32外设/TIM.md
       - RTOS:
           - FreeRTOS: Electrical/RTOS/FreeRTOS.md
-      - Motors: 
+      - Motors:
           - 电机简介: Electrical/Motors/index.md
           - 大疆电机: Electrical/Motors/大疆电机.md
           - 达妙电机: Electrical/Motors/达妙电机.md
@@ -174,10 +174,11 @@ nav:
           - can_list: Electrical/代码解析/can_list解析.md
           - msg_protocol: Electrical/代码解析/msg_protocol解析.md
       - 控制理论:
-          - 控制论基础: Electrical/ControlTheory/控制论基础.md
-          - PID控制详解: Electrical/ControlTheory/PID控制.md
-          - 控制论进阶: Electrical/ControlTheory/控制论进阶.md
-          - LADRC: Electrical/ControlTheory/LADRC.md
+          - 重新理解控制论: Electrical/ControlTheory/01-重新理解控制论.md
+          - PID控制详解: Electrical/ControlTheory/02-PID控制.md
+          - 机器人控制系统的分层设计与算法选型方法: Electrical/ControlTheory/03-机器人控制系统的分层设计与算法选型方法.md
+          - LADRC快速上手: Electrical/ControlTheory/04-LADRC快速上手.md
+          - LADRC代码实战: Electrical/ControlTheory/05-LADRC代码实战.md
       - 开发工具:
           - Segger:
             - SystemView: Electrical/Tools/Segger/SystemView配置指南.md
