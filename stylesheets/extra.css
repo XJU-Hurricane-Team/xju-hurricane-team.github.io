@@ -1,0 +1,131 @@
+/* 隐藏 scrollbar 
+::-webkit-scrollbar {
+  display: none;
+}*/
+
+/* 文字选取颜色 */
+::selection {
+  background: aquamarine;
+  color: black;
+}
+
+/* 正文中的图片：保持原始尺寸（不被强制拉伸），但当宽度超过容器时会按比例缩小到容器宽度 */
+.md-content img:not([alt="badge"]) {
+  /* 恢复之前的默认行为：图片填充内容宽度并带黑色边框 */
+  display: block;
+  width: auto; /* 保持自然宽度，超出容器时会缩小到 max-width */
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid black;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* .normal: 保持自然尺寸、无边框并且居中（用于恢复“当前默认效果”） */
+.md-content img.normal,
+.md-content img.normal.transparent-checker {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto; /* 保持自然宽度，超出容器时会缩小到 max-width */
+  max-width: 100%;
+  height: auto;
+  border: none;
+  background: transparent;
+}
+
+/* 图片缩放工具类（供 Markdown attribute lists 使用）
+   使用示例：
+     - 百分比缩放： `![alt](img.png){.img-scale-50}`  -> 宽度 50%
+     - 与 .normal 组合：  `![alt](img.png){.normal img-scale-50}`
+     - 精确像素：        `![alt](img.png){.img-w-320}`        -> 宽度 320px（最大不超过容器）
+     - 直接内联样式（最简单，attr_list 支持）：
+         `![alt](img.png){.normal style="width:50%"}`
+
+   说明：MkDocs/Markdown 的 attribute list 扩展需要启用（通常在 Material for MkDocs 中已开启 pymdownx.attr_list）。
+*/
+
+.md-content img.img-scale-25,
+.md-content img.img-scale-33,
+.md-content img.img-scale-50,
+.md-content img.img-scale-66,
+.md-content img.img-scale-75,
+.md-content img.img-scale-100,
+.md-content img.img-scale-125,
+.md-content img.img-scale-150 {
+  height: auto;
+  /* 保持 max-width 限制（默认图片最大不超过 1280px），但允许宽度按比例设置 */
+  max-width: 1280px;
+  box-sizing: border-box;
+}
+
+.md-content img.img-scale-25  { width: 25%  !important; }
+.md-content img.img-scale-33  { width: 33.333% !important; }
+.md-content img.img-scale-50  { width: 50%  !important; }
+.md-content img.img-scale-66  { width: 66.666% !important; }
+.md-content img.img-scale-75  { width: 75%  !important; }
+.md-content img.img-scale-100 { width:100%  !important; }
+.md-content img.img-scale-125 { width:125%  !important; max-width:none !important; }
+.md-content img.img-scale-150 { width:150%  !important; max-width:none !important; }
+
+/* 常用像素宽度类（在小屏上不会超过容器宽度） */
+.md-content img.img-w-160  { width:160px  !important; max-width:100% !important; }
+.md-content img.img-w-320  { width:320px  !important; max-width:100% !important; }
+.md-content img.img-w-640  { width:640px  !important; max-width:100% !important; }
+.md-content img.img-w-1280 { width:1280px !important; max-width:100% !important; }
+
+/* 兼容：当用户在 attr_list 中写入 width=50%（某些渲染器会把它变为 width 属性）
+   可以使用属性选择器来覆盖情况（可按需扩展更多值） */
+.md-content img[width="25%"]  { width:25%  !important; }
+.md-content img[width="50%"]  { width:50%  !important; }
+.md-content img[width="75%"]  { width:75%  !important; }
+.md-content img[width="100%"] { width:100% !important; }
+
+/* 保留调试棋盘格样式（可与 .normal 或其他类一起使用） */
+
+img[alt="logo"] {
+  border: none;
+}
+
+.md-logo img,
+.md-header .md-logo img,
+.md-header__title img,
+.md-nav__logo img,
+.md-header img {
+  background: transparent !important;
+}
+
+.altium-iframe-viewer {
+  height: 400px;
+  max-width: 1280px;
+  max-height: 700px;
+  /*
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px 0px 4px 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+    */
+}
+
+/*
+  iframe{
+    height: 450px;
+    width: 1280px;
+    max-width: 1280px;
+    max-height: 700px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0px 0px 4px 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+  }
+  */
+
+@font-face {
+  font-family: "Noto Sans SC - local";
+  src: "NotoSansSC-VariableFont_wght.ttf";
+}
