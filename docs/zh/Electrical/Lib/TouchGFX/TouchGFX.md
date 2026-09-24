@@ -37,7 +37,7 @@ TouchGFX 是一款适用于 STM32 MCU 的嵌入式 UI 框架，提供了便捷�
 ![](Picture/Pasted%20image%2020260406122324.png)
 
 注意 DMA 的`Data Width`要设置为半字宽度。
-![](Pasted%20image%2020260407115857.png)
+![](Picture/Pasted%20image%2020260407115857.png)
 
 开启 CRC 和 DMA2D（如果 MCU 有的话）。
 ![](Picture/Pasted%20image%2020260406122614.png)

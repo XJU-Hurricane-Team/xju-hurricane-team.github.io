@@ -205,7 +205,7 @@ struct msg_instance {
 
 流程如下：
 
-![](.\Picture\msg_send.png){.img-scale-50}
+![](Picture/msg_send.png){.img-scale-50}
 
 #### 扩缩缓存区
 
@@ -243,7 +243,7 @@ if (msg->send_buf_len <= data_len + 5) {
 
 流程如下：
 
-![](.\Picture\msg-rec.png){.img-scale-50}
+![](Picture/msg-rec.png){.img-scale-50}
 
 #### 消息数据入队
 
