@@ -2,7 +2,7 @@
 
 **本篇以`cubemx`模板构建`microros`代码，实现stm32F429IGT6运行简单例程。总体分为嵌入式端和linux代理端两部分构建**
 
-可参考：[官方学习网站](https://micro.ros.org/)
+可参考：[官方学习网站](https://micro.vulcanexus.org/)
 
 # 嵌入式端构建流程
 
