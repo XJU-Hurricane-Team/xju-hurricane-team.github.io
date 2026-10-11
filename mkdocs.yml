@@ -170,6 +170,7 @@ nav:
             - 头文件功能分类: Electrical/Lib/MicroROS/头文件功能分类.md
             - 执行器管理: Electrical/Lib/MicroROS/执行器管理.md
             - 中间件配置: Electrical/Lib/MicroROS/中间件配置/中间件配置.md
+            - 网口传输: Electrical/Lib/MicroROS/网口传输/网口传输.md
         - TouchGFX:
             - TouchGFX: Electrical/Lib/TouchGFX/TouchGFX.md
       - 代码解析:
