@@ -163,6 +163,7 @@ nav:
           - 宇树电机: Electrical/Motors/宇树电机.md
       - Lib:
         - MicroROS:
+            - micro-ROS简介: Electrical/Lib/MicroROS/micro-ROS简介.md
             - stm32运行microros: Electrical/Lib/MicroROS/stm32上运行microros/stm32上运行microros.md
             - 详细配置指南: Electrical/Lib/MicroROS/详细配置指南/详细配置指南.md
             - 嵌入战队模板: Electrical/Lib/MicroROS/嵌入战队模板/嵌入战队模板.md
