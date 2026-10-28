@@ -8,10 +8,10 @@ TouchGFX 是一款适用于 STM32 MCU 的嵌入式 UI 框架，提供了便捷�
 
 [26遥控项目仓库](https://github.com/XJU-Hurricane-Team/26RemoteCtrl)
 
-
 ## 硬件选型
 
 ### 硬件概述
+
 在开发嵌入式 UI 的过程中首先需要根据硬件条件考虑软件设计，通常需要考虑四个方面：
 
 - 屏幕：驱动芯片，屏幕尺寸，传输接口。
@@ -60,16 +60,15 @@ TouchGFX 是一款适用于 STM32 MCU 的嵌入式 UI 框架，提供了便捷�
 
 ![](Picture/Pasted%20image%2020260406125606.png)
 
-在`\CubeMX\Middlewares\ST\tougfx`路径下会生成如下文件，这些是 TouchGFX 的核心库文件。
+在`\CubeMX\Middlewares\ST\touchgfx`路径下会生成如下文件，这些是 TouchGFX 的核心库文件。
 ![](Picture/Pasted%20image%2020260406130259.png)
 打开 EIDE 按照下图添加文件到工程
 ![](Picture/Pasted%20image%2020260406130902.png)
 
-注意这里`touchgfx_core_wchar32.lib`为 TouchGFX 框架的核心库，仅提供二进制库文件，需要根据工程使用的编译器类型选择适配的库文件，所有库文件都存放在`\CubeMX\Middlewares\ST\touchgfx\lib\core\cortex_m4f`路径下，这里例程使用是 AC6 编译器选择图中的库文件。
+注意这里`touchgfx_core_wchar32.lib`为 TouchGFX 框架的核心库，仅提供二进制库文件，需要根据工程使用的编译器类型选择适配的库文件，所有库文件都存放在`\CubeMX\Middlewares\ST\touchgfx\lib\core\cortex_m4f`路径下，这里例程使用是 AC6 编译器选择图中的库文件（注意此处选用touchgfx_core_wchar32.lib时需将构建器配置—C/C++下的enum/wchar is short type取消勾选）。
 
 添加包含的目录：
 ![](Picture/Pasted%20image%2020260406131328.png)
-
 
 ## 框架说明
 
@@ -85,9 +84,9 @@ TouchGFX 框架中使用[图形引擎](https://support.touchgfx.com/zh-CN/docs/b
 
 由于引擎没有源码其内部对于我们来说是个黑盒，我们只需要关心引擎如何启动，循环执行需要什么条件，以及渲染后的数据如何传递给屏幕即可。
 
-### TouchGFX AL 
+### TouchGFX AL
 
-[TouchGFX抽象层（AL）](https://support.touchgfx.com/zh-CN/docs/development/touchgfx-hal-development/touchgfx-al-development-introduction)是位于用户代码与 TouchGFX 引擎之间的软件组件， 其主要任务是将引擎与底层硬件和操作系统相结合。TouchGFX 抽象层使用 C++ 编写，通过类的继承分为如下三层：
+[TouchGFX抽象层（AL）](https://support.touchgfx.com/zh-CN/docs/development/touchgfx-hal-development/touchgfx-al-development-introduction)是位于用户代码与 TouchGFX 引擎之间的软件组件，分为硬件抽象层（HAL）和操作系统抽象层（OSAL），其主要任务是将引擎分别与底层硬件和操作系统相结合。TouchGFX 抽象层使用 C++ 编写，通过类的继承分为如下三层：
 
 - `HAL`：祖父类，是整个框架的基础，类的声明在`CubeMX\Middlewares\ST\touchgfx\framework\include\touchgfx\hal\HAL.hpp`文件当中，方法的实现编译在 TouchGFX 的核心库当中无法直接查看，这个类无需我们手动修改，由 CubeMX 自动添加。
 
@@ -95,10 +94,40 @@ TouchGFX 框架中使用[图形引擎](https://support.touchgfx.com/zh-CN/docs/b
 
 - `TouchGFXHAL`：子类，继承于`TouchGFXGeneratedHAL`，声明于`CubeMX\TouchGFX\target\TouchGFXHAL.hpp`，这个类在第一次由TouchGFX Generator 根据项目配置自动生成，用户可以在此基础上根据自己的需求更改这个类，框架初始化时声明的也是这个类的对象。
 
-![](Picture/code-architecture.webp)
-
+![](Picture/code-architecture.webp) 
 
 ## 代码配置
+
+### 初始化流程
+
+```text
+       MX_TouchGFX_Init()
+               ├─ touchgfx_components_init()       // 组件预初始化
+               └─ touchgfx_init()
+                    ├─ 注册 Bitmap / Texts / Fonts 
+                    └─ hal.initialize()（调用点，实际调用TouchGFXHAL::initialize()）
+                            └─ TouchGFXHAL::initialize()                 // 板级初始化
+                                    ├─ xSemaphoreCreateCounting(8, 0)           // 手动添加
+                                    ├─ ST77xx_Init()                            // 手动添加
+                                    ├─ TouchGFXGeneratedHAL::initialize()       // 引擎装配
+                                    │     └─HAL::initialize()          // 引擎内部初始化（闭源）
+                                    │     │ ├─ OSWrappers::initialize()  // 同步对象初始化（手写）
+                                    │     │ └─ dma.initialize() → DMA2D
+                                    │     ├─ registerEventListener()
+                                    │     ├─ setFrameBufferAllocator()
+                                    │     └─ setFrameRefreshStrategy()
+                                    ├─ HAL_TIM_Base_Start_IT(&htim2)                // 手动添加
+                                    └─ 重新注册hdma2d.XferErrorCallback              // 手动添加
+    ————————————————————————————————————初始化完成—————————————————————————————————————
+       MX_TouchGFX_Process()
+               └─ touchgfx_taskEntry()
+                       └─ hal.taskEntry()
+                               └─ 进入主循环
+```
+
+HAL::initialize()闭源，可以确认它会调用用户实现的 OSWrappers::initialize()、并初始化 DMA2D 等，可打断点验证。
+
+图中标注“手动添加”的位置都需要用户实现，详见下文。
 
 ### RTOS 设置
 
@@ -112,6 +141,7 @@ TouchGFX 框架中使用[图形引擎](https://support.touchgfx.com/zh-CN/docs/b
 - `taskYield()`：在需要短暂让出 CPU 时调用 `taskYIELD()`，避免 UI 线程忙等。
 
 这套封装的作用可以简单理解为：
+
 - **信号量**负责“这个缓存块现在能不能被画/被传”。
 - **队列**负责“这一帧什么时候开始（VSync）”。
 
@@ -149,7 +179,7 @@ void touchgfxSignalVSync(void)
 }
 ```
 
-例程中在屏幕驱动文件下调用与实现了上述函数。`DisplayDriver_TransferCompleteCallback()`函数在传输完成回调函数中调用以启动新一轮传输，`touchgfxSignalVSync(void)`函数由定时器中断回调函数定时调用，调用频率为`30Hz`。注意`touchgfxDisplayDriverShouldTransferBlock()`这个函数只有在 CubeMX 中启用 `Partial Framebuffer VSync`选项时才需要实现。
+例程中在屏幕驱动文件`st77xx.c`下调用与实现了上述函数。`DisplayDriver_TransferCompleteCallback()`函数在传输完成回调函数中调用以启动新一轮传输，`touchgfxSignalVSync(void)`函数由定时器中断回调函数定时调用，调用频率约`30Hz`。注意`touchgfxDisplayDriverShouldTransferBlock()`这个函数只有在 CubeMX 中启用 `Partial Framebuffer VSync`选项时才需要实现。
 
 完整传输链路如下：
 
@@ -159,12 +189,88 @@ void touchgfxSignalVSync(void)
 4. DMA 传输完成后进入 `HAL_SPI_TxCpltCallback()`，恢复 SPI 配置、拉高 CS，并调用 `DisplayDriver_TransferCompleteCallback()`。
 5. `DisplayDriver_TransferCompleteCallback()` 内部调用 `touchgfx::startNewTransfer()`，释放已发送块并继续发送下一个已就绪块。
 
+### 分块缓存与同步
+
+部分帧缓存策略下，引擎并不直接画到屏幕，而是用一个或多个用户定义的内存块作为帧缓存，在“绘制—传输”之间轮转复用。块的流转由 `FrameBufferAllocator` 管理，用户只需要补齐几个同步钩子。
+
+#### 块状态机
+
+```text
+EMPTY ──allocateBlock()────────────────► ALLOCATED   引擎拿到空画布，allocateBlock()内将块状态置为ALLOCATED表示正在绘制
+ALLOCATED ──markBlockReadyForTransfer()─► DRAWN      一块画完后在flushFrameBuffer()中将块状态置为DRAWN表示可传输
+DRAWN ──getBlockForTransfer()──────────► SENDING     总线空闲时flushFrameBuffer()调用getBlockForTransfer()标记块状态为正在传输
+SENDING ──freeBlockAfterTransfer()─────► EMPTY       传输完成，归还
+```
+
+#### 四个同步函数
+
+| 函数                                         | 类型           | 谁调用                           | 时机             | 上下文    |
+| ------------------------------------------ | ------------ | ----------------------------- | -------------- | ------ |
+| `FrameBufferAllocatorWaitOnTransfer()`     | `__weak`，需覆盖 | `allocateBlock()`             | 没有 EMPTY 块时    | GUI 任务 |
+| `FrameBufferAllocatorSignalBlockDrawn()`   | `__weak`，可选  | `markBlockReadyForTransfer()` | 一块画完           | GUI 任务 |
+| `touchgfxNotifyBlockTransferDone()`        | 本工程自定义       | `st77xx.c`                    | 传输启动失败 / 线程上下文 | 任务     |
+| `touchgfxNotifyBlockTransferDoneFromISR()` | 本工程自定义       | `st77xx.c`                    | 传输完成 / 中断上下文   | 中断     |
+
+- 前两个是生成代码里的弱函数，默认空实现，本工程在 `TouchGFXHAL.cpp` 中提供强定义；
+- 后两个不是 TouchGFX 接口，是本工程为同步自建的函数。
+
+##### 函数实现
+
+```c
+namespace touchgfx {
+void FrameBufferAllocatorWaitOnTransfer() {
+    if (g_touchgfxTransferSem != NULL) {
+        // 添加超时保护，避免永久阻塞
+        if (xSemaphoreTake(g_touchgfxTransferSem, pdMS_TO_TICKS(500)) !=
+            pdPASS) {
+
+            IsTransmittingBlock_ = 0;
+        }
+    } else {
+        taskYIELD();
+    }
+}
+
+void FrameBufferAllocatorSignalBlockDrawn() {
+    /* Block transfer start is handled by generated HAL logic.
+     * This hook is kept to satisfy the partial framebuffer contract. */
+}
+} // namespace touchgfx
+
+extern "C" void touchgfxNotifyBlockTransferDone(void) {
+    if (g_touchgfxTransferSem != NULL) {
+        (void)xSemaphoreGive(g_touchgfxTransferSem);
+    }
+}
+
+extern "C" void touchgfxNotifyBlockTransferDoneFromISR(void) {
+    if (g_touchgfxTransferSem != NULL) {
+        BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+        (void)xSemaphoreGiveFromISR(g_touchgfxTransferSem,
+                                    &xHigherPriorityTaskWoken);
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+    }
+}
+```
+
+> IsTransmittingBlock_ 是屏幕驱动中的“SPI 正在传输”标志：ST77xx_Bitmap() 置 1，DMA 完成/出错/超时时清 0，由 touchgfxDisplayDriverTransmitActive() 返回给引擎。
+
+#### 同步过程
+
+`g_touchgfxTransferSem` 是计数信号量（上限 8、初值 0），在 `TouchGFXHAL::initialize()` 中创建（见“引擎启动”）。
+
+1. 引擎开始绘制时调用 `allocateBlock()`；若没有 `EMPTY` 块，就调用 `FrameBufferAllocatorWaitOnTransfer()`阻塞等待（例程 500 ms 超时兜底）。
+2. **每传输完一块**，`HAL_SPI_TxCpltCallback()` 调用 `touchgfxNotifyBlockTransferDoneFromISR()`，通过 `xSemaphoreGiveFromISR()` 发送一个“完成通知”（用于释放`FrameBufferAllocatorWaitOnTransfer()`阻塞）。
+3. `startNewTransfer()` 中的 `freeBlockAfterTransfer()` 把块恢复为 `EMPTY`；等待中的绘制流程被唤醒后即可继续。
+4. 传输启动失败或 SPI 忙超时时，驱动走非 ISR 版 `touchgfxNotifyBlockTransferDone()` 做同样通知，避免绘制流程永久阻塞。
+
+> 500 ms 超时只是防止死锁：超时只清除 `IsTransmittingBlock_`，**不会**把块恢复为 `EMPTY`；块的真正回收仍依赖 `freeBlockAfterTransfer()`。
 
 ### 引擎启动
 
-CubeMX 生成的代码中会在 main 函数中自动调用`MX_TouchGFX_Init()`去执行 TouchGFX 框架初始化，想要启动图形引擎只需要创建任务调用`MX_TouchGFX_Process()`函数即可，该函数内部执行引擎循环。
+CubeMX 生成的代码中会在 main 函数中自动调用`MX_TouchGFX_Init()`去执行 TouchGFX 框架初始化（见初始化流程），想要启动图形引擎只需要创建任务调用`MX_TouchGFX_Process()`函数即可，该函数内部执行引擎循环。
 
-``` c
+```c
 /**
  * @brief TouchGFX_Task: TouchGFX processing task.
  * @param pvParameters Start parameters.
@@ -176,12 +282,45 @@ void TouchGFX_Task(void *pvParameters) {
 }
 ```
 
-其中 `MX_TouchGFX_Init()` 内部会调用到 `TouchGFXHAL::initialize()`，例程当中这里做了三件和硬件强相关的事情：
+其中 `MX_TouchGFX_Init()` 内部会调用到 `TouchGFXHAL::initialize()`，例程在这里做了五件事情：
 
-- 创建传输同步信号量 `g_touchgfxTransferSem`。
-- 调用 `ST77xx_Init()` 完成屏幕初始化。
-- 启动 `TIM2` 中断，周期性触发 `touchgfxSignalVSync()` 给引擎提供 VSync 节拍。
+1. 创建传输同步信号量 `g_touchgfxTransferSem`。
 
+2. 调用 `ST77xx_Init()` 完成屏幕初始化。
+
+3. 调用`TouchGFXGeneratedHAL::initialize()`初始化 OSAL/DMA2D/LCD，绑定缓存块与刷新策略，注册事件。
+
+4. 启动 `TIM2` 中断，周期性触发 `touchgfxSignalVSync()` 给引擎提供 VSync 节拍。
+
+5. 重新注册DMA2D回调函数避免生成代码在出错时进入 while(1)。
+
+其中屏幕初始化和TIM2与硬件强相关。
+
+```c
+void TouchGFXHAL::initialize()
+{
+    // Calling parent implementation of initialize().
+    //
+    // To overwrite the generated implementation, omit the call to the parent function
+    // and implement the needed functionality here.
+    // Please note, HAL::initialize() must be called to initialize the framework.
+
+    if (g_touchgfxTransferSem == NULL) {
+        g_touchgfxTransferSem = xSemaphoreCreateCounting(8, 0);
+    }
+    ST77xx_Init(0, ST7789);                             // 初始化屏幕
+    TouchGFXGeneratedHAL::initialize();                  
+    HAL_TIM_Base_Start_IT(&htim2);                      // 启动VSync定时器
+
+    // 修复：重新注册DMA2D错误回调，避免生成文件中的死循环
+    extern DMA2D_HandleTypeDef hdma2d;
+    hdma2d.XferErrorCallback = TouchGFXHAL_DMA2D_ErrorCallback;
+}
+```
+
+### 注意事项
+
+FreeRTOSConfig.h中的configTOTAL_HEAP_SIZE初始值往往较小，对遥控器工程有些局促，可以适当扩大（如直接扩大至65535）。
 
 ## UI 设置
 
@@ -202,6 +341,5 @@ TouchGFX 使用经典 MVP（Model-View-Presenter）架构。
 - 在 `Model.cpp` 负责采集数据中从 `ui_msg_queue` 非阻塞读取底层消息（遥控器、R1、R2 状态），完成数据聚合。
 - 在 `screenPresenter.cpp` 中接收 Model 回调，把业务数据写入 View 的显示字段。
 - 在`screenView.cpp` 中把字段格式化为文本并 `invalidate()`，触发局部重绘，将需要显示的信息显示在屏幕上。
-
 
 
